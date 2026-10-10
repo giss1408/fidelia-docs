@@ -1,0 +1,91 @@
+site_name: Fidelia — Documentation
+site_description: Business, regulation and technical documentation of Fidelia.
+copyright: Fidelia — contact.fidelia@regisse.com
+repo_url: https://github.com/giss1408/fidelia-docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Mode sombre
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Mode clair
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - content.code.copy
+    - toc.follow
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - footnotes
+  - toc:
+      permalink: true
+      # GitHub-style anchors, so links written for GitHub (e.g. ROADMAP.md#phase-1--…) work here too.
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search:
+      lang: [fr, en]
+
+nav:
+  - Home: README.md
+  - Business:
+      - Concept: business/CONCEPT.md
+      - Market: business/MARKET.md
+      - Business model: business/BUSINESS-MODEL.md
+      - Roadmap: business/ROADMAP.md
+      - KPIs: business/KPI.md
+      - Partners: business/PARTNERS.md
+      - Investors:
+          - Investor brief: business/INVESTOR-BRIEF.md
+          - Dossier investisseur (FR): business/INVESTOR-BRIEF.fr.md
+          - Investor readiness: business/INVESTOR-READINESS.md
+          - Préparation à la levée (FR): business/INVESTOR-READINESS.fr.md
+          - Investor room setup: business/INVESTOR-ROOM-SETUP.md
+          - Letters of interest: business/LETTERS-OF-INTEREST.md
+          - Lettres d'intérêt (FR): business/LETTERS-OF-INTEREST.fr.md
+      - Finance:
+          - Launch and pilot budget: business/FINANCE-BUDGET.md
+          - Budget de lancement (FR): business/FINANCE-BUDGET.fr.md
+          - Finance validation pack: business/FINANCE-VALIDATION.md
+          - Dossier de validation financière (FR): business/FINANCE-VALIDATION.fr.md
+      - Proposition pilote Fin'ELLE (FR): business/PROPOSITION-PILOTE-FINELLE.fr.md
+  - Regulation:
+      - Personal data and ARTCI: Reglementation/ARTCI.md
+  - Technical:
+      - Technical guide: technical/TECHNICAL-GUIDE.md
+      - User enrollment: technical/ENROLLMENT.md
+      - Test deployment: technical/DEPLOY-TEST.md
+      - VPS test server: technical/VPS-TEST-SERVER.md
+      - Production: technical/PRODUCTION.md
+      - Google Play publishing: technical/PLAY-STORE.md
+      - Google Play releases: technical/PLAY-RELEASE.md
+  - Planning:
+      - Concept review and optimization: planning/optimization_claude_fidelia.md
+      - Implementation action plan: planning/action_plan_claude_fidelia.md
+  - Concept reviews:
+      - Concept messaging: ConceptReview/ConceptMessaging.md
+      - Leo review: ConceptReview/LeoReview.md
