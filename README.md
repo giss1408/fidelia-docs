@@ -20,8 +20,11 @@ Links to code point at the repositories on GitHub (`djassa-BE`,
 
 ## Where the documents come from
 
-Copied on 10 October 2026 from `fidelia-BE/docs` (commit `12b9949`), with
-the links that left `docs/` rewritten to GitHub addresses.
+This repository is the only home of the documentation. It was moved here on
+10 October 2026 from `fidelia-BE/docs` (commit `12b9949`), under the same
+paths, so a mention like `docs/technical/PRODUCTION.md` in the code or a
+commit message points here. Links that left `docs/` were rewritten to GitHub
+addresses.
 
 ## Sections
 
