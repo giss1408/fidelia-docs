@@ -31,6 +31,8 @@ The rule: **no phone number is tied to a sale or to points without a consent on 
 
 **Suggestions to the Fidelia team.** An *Aide* (help) entry in the app menu opens WhatsApp to the team's number. It is hidden until the customer has 100 points (merchants and cashiers always have it). The points are not spent. The customer starts the conversation from their own WhatsApp, so it is not unsolicited, but messages then sit in WhatsApp (Meta) and count as personal data Fidelia holds. Declare it with the rest.
 
+**Pilot merchants' self-declared gender.** For the pilot's gender reporting, the team asks each pilot merchant, at the Phase 0 interview, whether they wish to give their gender (woman, man, or prefers not to say). It is optional, stored on the shop's pilot record (`pilot_merchants.owner_gender`), reported only as a count, never used to assess the shop, and cleared when the shop changes owner. Declare it with the rest.
+
 **Favourites and history stay on the phone.** The star on a shop, recent searches and recently viewed shops are saved in a file on the customer's phone, never sent to Fidelia. They work without an account, and *Effacer* or uninstalling the app removes them. Fidelia does not process this data, so it is not part of the declaration.
 
 **Wording changes.** If the consent text changes, bump `CURRENT_VERSION` on the server and `loyaltyConsentVersion` in the customer app together. Each row records the version that person agreed to.

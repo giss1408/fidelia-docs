@@ -2,7 +2,7 @@
 
 This document defines what Fidelia measures, how each number is computed, where the data lives in the platform, and what value moves a phase gate. It turns the metric lists in [BUSINESS-MODEL.md](BUSINESS-MODEL.md#unit-economics) and [ROADMAP.md](ROADMAP.md) into one scorecard.
 
-*Last updated: 6 October 2026. Stage: pre-pilot (Phase 0).*
+*Last updated: 12 October 2026. Stage: pre-pilot (Phase 0). Before the first pilot merchant starts, work through the [pre-pilot checklist](#12-pre-pilot-checklist).*
 
 **How to read the targets.** Fidelia has no pilot data yet. Every target here is one of three kinds, and is labelled as such:
 
@@ -59,7 +59,8 @@ Track only what the current phase needs. A KPI from a later phase stays off the 
 | Cash recording intent | Share of interviewed merchants who say they would record their cash sales | ≥ 50% (**Gate** if Wave refuses access: below it, apply the stop-or-change rule in [CONCEPT.md § 12](CONCEPT.md#12-pilot-boundaries)) |
 | MFI tool test | MFIs asked whether they would pay for a consented tool to follow their merchant borrowers' sales, and merchants asked whether they would accept it | 1–2 MFIs asked; answer recorded (**Gate**) |
 | Willingness to pay | Share of interviewed merchants who accept a price within the [pricing experiment](BUSINESS-MODEL.md#pricing-experiment) range | ≥ 50% (**Proposed**) |
-| Baseline repeat-visit rate | Merchant's own estimate of how many customers return within 30 days, recorded **before** Fidelia | Recorded for every pilot merchant (**Gate**: needed for the before/after comparison) |
+| Baseline repeat-visit rate | Merchant's own estimate of how many customers return within 30 days, recorded **before** their first Fidelia sale, on the shop's *Pilote* card in the installer (`PUT /api/admin/venues/{id}/pilot`) | Recorded for every pilot merchant (**Gate**: needed for the before/after comparison). The scorecard flags a baseline recorded after the first sale |
+| Owner's gender | Self-declared and optional (woman, man, prefers not to say), asked at the same interview | Asked of every pilot merchant; reported in aggregate only, never used to assess a shop |
 | Baseline daily sales and wallet share | Tickets per day, average basket, % paid by mobile money | Recorded for every pilot merchant |
 | Real cost per loyalty notification | Quoted bulk-SMS and WhatsApp Business price per message in Côte d'Ivoire | Known before Phase 1 |
 | Partner confirmations | Payment partner, Wave webhook access, ARTCI review | All answered (**Gate**: no blocker on data or funds flow) |
@@ -77,12 +78,15 @@ The core dashboard. Definitions are in §§ 4–8.
 | Loyalty | Repeat-visit rate of identified customers vs baseline | Positive lift the merchant can state (**Gate**). Proposed: +5 pts at a maquis; grocery target set from Phase 0 interviews, matching the [value equation](BUSINESS-MODEL.md#why-a-merchant-pays-the-value-equation) |
 | Customer app | Installs still active at 7 and 30 days, in the pilot commune | Tracked from launch; target set after the first month (**Proposed**) |
 | Customer app | New customers brought by app offers: first visits where an app offer was used at the counter, per outlet per week | Positive for most outlets; the merchant can state it (**Gate**) |
+| Revenue | Day-45 commitment: merchants who sign the paid-plan offer, naming the plan and price, to start when the pilot ends | ≥ 50% of active pilot outlets (**Proposed**). An early read of the gate below, leaving two weeks to act on the reasons for a refusal |
 | Revenue | Acceptance of the paid plan when the free pilot ends | ≥ 40% of active pilot outlets (**Gate**; the pilot is free, so this is its revenue result) |
 | Revenue | Renewal | 3 consecutive months after the pilot (**Gate** for the unit-economics review) |
 | Cost | Notification cost per active outlet | < 30% of the planned subscription price (**Proposed**); push notifications are free, so this should stay near zero |
 | Cost | CAC | < 12 months of expected gross profit per outlet (**Gate**) |
 | Payments | Payment success rate | ≥ 95% (**Proposed**) |
 | Trust | Exports with an audit record | 100% (**Gate**: hard rule) |
+| Proof | Lender acceptance: signed revenue statements that a partner MFI's loan officer judges usable to assess the merchant | ≥ 7 of 10 statements reviewed (**Proposed**; set the threshold with the MFI). Logged by hand ([§ 13](#13-pilot-log)): the claim "proof a lender can trust" is tested here and nowhere else |
+| Inclusion | Women's share of pilot merchants | Reported at every review (**Gate**: the pilot's partners, such as Fin'ELLE, measure it) |
 
 ### 3.3 Phases 3–5 — Tontine, reliability indicator, partner finance
 
@@ -117,13 +121,23 @@ Runs only at shops where an admin switched it on. Read from `GET /api/admin/laya
 | New customers brought | Customers whose first record at the shop is a plan | Asked of each merchant |
 | Women's share of plans | | Needs the gender field ([§ 9](#9-measurement-gaps)) |
 
+### 3.5 Reading the pilot results
+
+The pilot has 5 to 10 merchants. One merchant moves a percentage by 10 to 20 points, so a rate alone cannot be read.
+
+- **Counts before rates.** Report "6 of 9 merchants", never "67%" alone. The pilot scorecard (installer → *Pilote*, `GET /api/admin/pilot/scorecard`) shows every rate with its counts.
+- **Merchant by merchant.** Judge each merchant against the target, then count how many met it. An average hides one merchant at 95% next to three at 20%.
+- **Enough evidence to decide.** A gate is decided only on merchants active for 60 days or more. With fewer than 5 such merchants, the answer is "extend the pilot", not pass or fail.
+- **Name the outliers.** When one merchant carries a result, say so in the review.
+- **What the pilot can and cannot show.** It can justify continuing and raising the seed round, or stopping. It cannot prove the model at scale; the unit-economics gate ([BUSINESS-MODEL.md](BUSINESS-MODEL.md#decision-gates)) does that, on a whole corridor.
+
 ---
 
 ## 4. Merchant adoption and engagement
 
 | KPI | Formula | Source in the platform | Status |
 |---|---|---|---|
-| **Recorded share** (North Star) | Sales the server holds for a day ÷ the merchant's end-of-day estimate (`daily_report`), per merchant, over report days | `GET /api/admin/usage?app=retailer` → `merchants[].recorded_share`; `sale_events` + `usage_events` | **Live** (pilot-only end-of-day self-report by the merchant; remove once the confirmed share makes it moot) |
+| **Recorded share** (North Star) | Sales the server holds for a day ÷ the merchant's end-of-day estimate (`daily_report`), per merchant, over report days | `GET /api/admin/usage?app=retailer` → `merchants[].recorded_share`, and the pilot scorecard; `sale_events` + `usage_events` | **Live** (pilot-only end-of-day self-report by the merchant; remove once the confirmed share makes it moot) |
 | Enrolled outlets | Venues created, excluding `is_sample` | `venues` | Live |
 | Activation rate | Outlets with ≥ 1 recorded sale within 7 days of enrolment ÷ enrolled | `venues.created_at`, `sale_events` | Computable (query) |
 | Time to first sale | Enrolment → first `SaleEvent` | as above | Computable |
@@ -144,7 +158,7 @@ Runs only at shops where an admin switched it on. Read from `GET /api/admin/laya
 
 | KPI | Formula | Source | Status |
 |---|---|---|---|
-| **Repeat-visit rate (identified customers)** | Customers with ≥ 2 visits at an outlet within 30 days ÷ customers with ≥ 1 visit, compared with the Phase 0 baseline | `sale_events.customer_id`, `loyalty_entries` | Computable; baseline is collected by hand |
+| **Repeat-visit rate (identified customers)** | Customers with sales on ≥ 2 different days at an outlet in the window ÷ customers with ≥ 1, compared with the Phase 0 baseline | `GET /api/admin/pilot/scorecard` → `rows[].repeat_pct`, `baseline_repeat_pct`, `repeat_lift_pts`; `sale_events.customer_id`, `pilot_merchants` | **Live** |
 | Identified share of sales | `SaleEvent` with a `customer_id` ÷ all sales, per outlet | `sale_events` | Computable |
 | Loyalty consent rate | Consents granted ÷ customers asked, split `app` / `counter` | `loyalty_consents` | Partial: "asked" is not logged |
 | Consent withdrawal rate | Withdrawn ÷ granted, monthly | `loyalty_consents.withdrawn_at` | Computable. Rising rate = trust alarm |
@@ -175,10 +189,10 @@ All amounts in XOF. "Outlet" means one paying venue.
 | Net revenue retention | MRR this month from last year's (or last quarter's) cohort ÷ that cohort's starting MRR | `billing_events` | Computable once there is a year of data. Benchmark median ≈ 101% |
 | ARPU per paying outlet | MRR ÷ paying outlets | derived | Live |
 | Sponsored placements sold, revenue, paid rate | Placements with `paid_at` set, price sum | `deal_placements` | Computable |
-| **CAC per outlet** | (Field-agent pay, reseller commission, materials, travel) ÷ outlets that became active | Not in the platform | **Gap** |
+| **CAC per outlet** | (Field-agent pay, reseller commission, materials, travel) ÷ outlets that became active | Pilot log ([§ 13](#13-pilot-log)), by hand | **Manual** in the pilot. Hand-held pilot onboarding overstates the cost at scale: read it as a ceiling |
 | CAC payback | CAC ÷ monthly gross profit per outlet | derived | Gap until CAC exists. Gate: < 12 months. Benchmark (early-stage SaaS): 18–24 months, so Fidelia's gate is deliberately stricter |
-| **Notification cost per active outlet** | SMS + WhatsApp spend attributed to an outlet ÷ active outlets | Not in the platform (OTP spend is only budget-capped) | **Gap** |
-| Support cost per outlet | Support hours × cost ÷ active outlets; support requests per outlet | `support_requests` (count only) | Partial |
+| **Notification cost per active outlet** | SMS + WhatsApp spend attributed to an outlet ÷ active outlets | Pilot log ([§ 13](#13-pilot-log)); OTP spend is budget-capped | **Manual**. Push notifications are free, so this should stay near zero; any paid message is logged |
+| Support cost per outlet | Support hours × cost ÷ active outlets; support requests per outlet | Pilot log ([§ 13](#13-pilot-log)) for hours; `support_requests` for counts | **Manual** |
 | Payment cost per transaction | Aggregator fees on Fidelia-route payments ÷ payments | provider reports | Gap |
 | Gross margin by plan | (Plan revenue − notification, payment, hosting and support costs) ÷ plan revenue | derived | Gap |
 | **Contribution margin per corridor, excluding credit commissions** | | derived | Gate: positive before expansion |
@@ -230,14 +244,13 @@ What this scorecard needs and the platform cannot produce yet, in priority order
 
 | Gap | Why it matters | Proposed fix |
 |---|---|---|
-| **No gender field** on users, venues or partner requests | Gender reporting is a design constraint and every institutional partner (APIF, Fin'ELLE, SGPME) will ask for it | Optional, self-declared field on the merchant enrolment and the user profile, with consent and a "prefer not to say" option; never used in any score |
-| **No acquisition cost record** | CAC and the unit-economics gate cannot be computed | Log agent and reseller payments per enrolled outlet (`venues.enrolled_by` already names the agent) |
-| **No notification cost record** | The [hidden risk](BUSINESS-MODEL.md#why-a-merchant-pays-the-value-equation) in the model | Record each paid SMS/WhatsApp send with its venue and unit cost |
+| **No gender field for customers** | Gender reporting is a design constraint for every financial feature (Phase 3+) | Optional, self-declared field on the customer profile, with a "prefer not to say" option; never used in any score. Pilot merchants already have one (`pilot_merchants.owner_gender`) |
+| **No acquisition cost record in the platform** | CAC and the unit-economics gate cannot be computed automatically | Pilot: the hand-kept log ([§ 13](#13-pilot-log)). After the pilot: record agent and reseller payments per enrolled outlet (`venues.enrolled_by` already names the agent) |
+| **No notification cost record in the platform** | The [hidden risk](BUSINESS-MODEL.md#why-a-merchant-pays-the-value-equation) in the model | Pilot: the hand-kept log. Before any paid campaign: record each paid SMS/WhatsApp send with its venue and unit cost |
 | No log of consent *requests* | Consent rate has no denominator | Event when the counter or app shows the consent prompt |
-| No pre-Fidelia baseline in the platform | The repeat-visit lift is the number that sells the subscription | Phase 0 interview form, stored per venue |
 | Points never expire | Liability grows without limit | Expiry and a redemption cap, decided before merchants accumulate balances ([ROADMAP Phase 1](ROADMAP.md#phase-1--merchant-mvp-record-pay-reward--next)) |
 | No reconciliation with settlement reports | Confirmed revenue cannot be certified | Phase 1 payment work |
-| No KPI dashboard combining billing and usage | The gate review needs one page | One admin endpoint or Grafana dashboard over the queries above |
+| Pilot scorecard does not include billing | The gate review reads revenue on a second page | The scorecard covers usage, loyalty, offers and the day-45 commitment; MRR and payments stay in `GET /api/admin/revenue` until both are needed on one page |
 
 ---
 
@@ -277,11 +290,74 @@ Re-verify every external figure before it appears in investor, partner or regula
 | Cadence | Who | What |
 |---|---|---|
 | Daily (pilot) | Ops | Active outlets, sync errors, payment failures, alerts |
-| Weekly | Team | North Star per merchant, repeat-visit lift, abandons, support requests. The merchant gets their own "customers who came back" number the same week |
+| Weekly | Team | The pilot scorecard: North Star per merchant, repeat-visit lift, new customers from offers; abandons and support requests; the pilot log. The merchant gets their own "customers who came back" number the same week |
 | Monthly | Team + advisors | MRR, conversion, renewal, churn, cost per outlet, points liability, consent withdrawals |
 | At each gate | Founders, partners | The phase scorecard in § 3, with the evidence behind each number |
 
 When a KPI changes definition, record the date and the reason here, so a trend never silently mixes two definitions.
+
+- 12 October 2026: repeat-visit rate counts visits as *different days* with a sale (two sales the same day are one visit). Added the day-45 commitment, lender acceptance and women's share of pilot merchants.
+
+---
+
+## 12. Pre-pilot checklist
+
+The first pilot merchant starts only when every box is ticked. Most of it is the Phase 0 exit gate ([ROADMAP.md](ROADMAP.md#phase-0--discovery-and-compliance--in-progress)) and the Tranche 2 release conditions ([FINANCE.md](FINANCE.md) § 4); the last group makes sure the pilot can answer its questions.
+
+**Discovery and partners**
+
+- [ ] 5–10 interviews with maquis and grocery owners in the pilot commune
+- [ ] Wave's written answer on webhook access for small merchants and on using the payer's number for loyalty
+- [ ] If Wave refuses: stop-or-change rule applied ([CONCEPT.md § 12](CONCEPT.md#12-pilot-boundaries))
+- [ ] A licensed payment partner confirmed
+- [ ] One or two MFIs asked about the follow-up tool; one MFI agrees to review statements (who reviews, how many, by when)
+- [ ] Pilot agreements or letters of interest signed by the pilot merchants ([LETTERS-OF-INTEREST.md](LETTERS-OF-INTEREST.md))
+
+**Company and compliance**
+
+- [ ] Company registered; every `[PLACEHOLDER]` in the investor brief replaced
+- [ ] Hosting decided and every processor listed with its country ([ARTCI.md § 4](../Reglementation/ARTCI.md))
+- [ ] ARTCI declaration filed, with the transfer authorisation request if data stays abroad
+- [ ] Privacy notice live in the customer app and on the site; consent wording reviewed by counsel
+- [ ] Data collected before the consent change cleaned up ([ARTCI.md § 5](../Reglementation/ARTCI.md))
+
+**Production**
+
+- [ ] Production deployed ([PRODUCTION.md](../technical/PRODUCTION.md)) with backups, alerts and uptime monitors
+- [ ] Live SMS provider for sign-in codes; Firebase push configured (`PUSH_PROVIDER=fcm`)
+- [ ] Independent security review: no open critical issue
+- [ ] Apps built against the production API, in a Google Play closed test ([PLAY-STORE.md § 4](../technical/PLAY-STORE.md))
+
+**Measurement ready on day 0**
+
+- [ ] Each pilot merchant has a *Pilote* card with the baseline recorded **before their first sale**, and gender asked
+- [ ] The end-of-day "how many sales today?" question is on in Fidelia Pro for every pilot merchant
+- [ ] Every pilot merchant appears on the pilot scorecard
+- [ ] The pilot log (§ 13) is open, with costs logged from the first visit
+- [ ] The day-45 offer is ready: plan, price and a one-page order form (the pilot stays free; nothing is paid before it ends)
+
+## 13. Pilot log
+
+Some numbers come from outside the platform: what Fidelia spends to bring and keep a merchant, and what a lender thinks of a statement. With 5 to 10 merchants, a shared spreadsheet is the right tool. Keep one tab per log; one row per event.
+
+**Acquisition and support** (one row per visit, call or payment linked to a merchant)
+
+| Date | Merchant (venue id) | Kind: onboarding, training, support visit, call | Who | Hours | Travel and materials (F) | Agent pay or commission (F) | Note |
+|---|---|---|---|---|---|---|---|
+
+CAC per outlet = onboarding rows (hours × hourly cost + travel, materials, pay) ÷ outlets active at 30 days. Support cost per outlet = support rows ÷ active outlets, per month.
+
+**Paid messages** (expected to stay empty: push notifications are free)
+
+| Date | Merchant (venue id) | Channel: SMS, WhatsApp | Messages | Unit cost (F) | Why |
+|---|---|---|---|---|---|
+
+**Lender reviews** (one row per signed statement a partner MFI reviews)
+
+| Date | Merchant (venue id) | Statement period | MFI | Reviewer's role | Usable to assess the merchant? yes / no | Why, in the reviewer's words |
+|---|---|---|---|---|---|---|
+
+Record only what the merchant consented to share and what the MFI agrees to tell us. Never record a credit decision unless the MFI may share it.
 
 ## Related documents
 

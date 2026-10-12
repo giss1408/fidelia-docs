@@ -148,6 +148,8 @@ R2 setup: Cloudflare dashboard → R2 → create bucket `fidelia-media` → Sett
 
 `../fidelia-installer`, a React static site for the Fidelia team: shops and their media, sign-up requests, account recoveries, users and roles, and app errors. Admins sign in with phone + SMS code using `app: "admin"`; only numbers with the admin role get a session. The supporting endpoints are `GET/PATCH /api/admin/venues[/{id}]`, `GET /api/admin/users?phone=`, `POST /api/admin/users/disable` and `POST /api/admin/users/roles/revoke`. An admin cannot suspend themselves or remove their own admin role. Add the site's origin to `CORS_ORIGINS`.
 
+**Pilot record and scorecard.** Each shop page has a *Pilote* card (`GET/PUT /api/admin/venues/{id}/pilot`, `app/api/pilot.py`): the merchant's pre-Fidelia baseline, their self-declared gender and their day-45 answer to the paid-plan offer. Saving it puts the shop in the pilot. The server dates the baseline the first time a figure arrives, so the scorecard can flag a baseline taken after the first sale; a new owner clears the previous owner's gender. The *Pilote* page (`GET /api/admin/pilot/scorecard?days=30`) lists every pilot merchant with recorded share, repeat visits against the baseline, new customers from offers and commitment, each rate with its counts ([KPI.md § 3.5](../business/KPI.md#35-reading-the-pilot-results)).
+
 ## Account recovery
 
 `app/api/account.py`. In the apps: *Mon compte* in the menu, and *Numéro perdu ?*

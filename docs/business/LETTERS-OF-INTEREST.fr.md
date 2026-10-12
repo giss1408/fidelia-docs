@@ -49,7 +49,7 @@ Je soussigné(e) [Nom et prénom], responsable de [Nom du commerce], déclare ê
 
 **Ce que j'ai compris :**
 
-- Le pilote est gratuit. À la fin, Fidelia me proposera une formule payante (de l'ordre de 5 000 à 10 000 FCFA par mois) ; je serai libre de l'accepter ou non.
+- Le pilote est gratuit. Vers le milieu du pilote, Fidelia me proposera une formule payante (de l'ordre de 5 000 à 10 000 FCFA par mois) qui ne commencerait qu'à la fin du pilote ; je serai libre de l'accepter ou non, et rien n'est payé avant la fin du pilote.
 - L'argent de mes clients va directement sur mon portefeuille : Fidelia ne détient jamais mon argent.
 - Fidelia ne partage pas mes données sans mon accord. Mon historique peut un jour m'aider à présenter mon activité à une institution financière, mais Fidelia ne promet aucun crédit.
 

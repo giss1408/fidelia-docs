@@ -77,12 +77,14 @@ A phase is complete when **real users have validated it**, not when the code shi
 - **Customer app, focused scope** ([CONCEPT.md § 12](CONCEPT.md#12-pilot-boundaries)): map of pilot merchants with directions, free merchant offers with push notifications, on-duty pharmacies, points and rewards. Customers without the app identify by phone number at the counter. No WhatsApp or SMS alerts.
 - **Offer use recorded at the counter** in the merchant app, to count the new customers the app brings.
 - Merchant reporting: **daily cash book** (one total across every wallet and cash, the day-1 hook), a weekly report of **"customers who came back"** and **"new customers brought by Fidelia"**, and a signed, consented revenue statement for MFI demos.
-- **Everything free during the pilot.** Billing and paid plans stay ready (subscription paid in mobile money) so the paid plan can be offered when the pilot ends.
+- **Everything free during the pilot.** Billing and paid plans stay ready (subscription paid in mobile money) so the paid plan can start when the pilot ends.
+- **Day-45 commitment:** around day 45, each merchant is offered the paid plan to start at the end of the pilot and asked to commit with the plan and price named. Recorded on the shop's *Pilote* card in the installer.
+- **Pilot scorecard** in the installer: each merchant's recorded share, repeat visits against their pre-Fidelia baseline, new customers from offers and commitment, with counts next to every rate ([KPI.md § 3.5](KPI.md#35-reading-the-pilot-results)).
 - Offline queue and sync (built).
 - Per-resource authorisation and ownership checks; production secrets.
 - French first; Dioula for the merchant app.
 
-**Measure:** % of real sales recorded (master metric) · repeat-visit rate of identified customers, before and after joining · notification cost per active outlet · active merchants · transactions per merchant · customer repeat rate · payment success rate · customer app installs active at 7 and 30 days · new customers brought by app offers · merchant retention 30/60/90 · **share of merchants accepting the paid plan at the end of the pilot** · support cost per outlet · data consumed per user.
+**Measure:** % of real sales recorded (master metric) · repeat-visit rate of identified customers, before and after joining · notification cost per active outlet · active merchants · transactions per merchant · customer repeat rate · payment success rate · customer app installs active at 7 and 30 days · new customers brought by app offers · merchant retention 30/60/90 · **day-45 commitments, then the share of merchants accepting the paid plan at the end of the pilot** · signed statements a partner MFI judges usable · support cost per outlet · data consumed per user.
 
 **Identity gate:** no biometric or national-ID check for loyalty or payments; the operator identity signal and consent are defined before relying on them; duplicate-account prevention tested without exposing unnecessary data.
 

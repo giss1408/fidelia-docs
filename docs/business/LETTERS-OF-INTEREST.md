@@ -51,7 +51,7 @@ I, the undersigned [full name], owner of [shop name], state my interest in the F
 
 **What I understand:**
 
-- The pilot is free. At the end, Fidelia will offer me a paid plan (around XOF 5,000 to 10,000 a month); I will be free to accept it or not.
+- The pilot is free. Around the middle of the pilot, Fidelia will offer me a paid plan (around XOF 5,000 to 10,000 a month) that would start only when the pilot ends; I will be free to accept it or not, and nothing is paid before the end of the pilot.
 - My customers' money goes straight to my wallet: Fidelia never holds my money.
 - Fidelia does not share my data without my consent. My history may one day help me show my business to a financial institution, but Fidelia promises no credit.
 
