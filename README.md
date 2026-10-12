@@ -26,6 +26,34 @@ fails on a broken link or a page missing from the navigation.
 Links to code point at the repositories on GitHub (`djassa-BE`,
 `djassa-App-*`, `djassa-Web`, branch `integration`).
 
+## Deploy on Render (behind a login)
+
+The docs hold internal and confidential pages, so the site is not a public
+static site: [render.yaml](render.yaml) runs it as a small web service that
+asks for one shared login ([server.py](server.py), HTTP basic auth over
+HTTPS). Every push to `main` deploys.
+
+1. Render dashboard → **New → Blueprint** → this repository. Render reads
+   `render.yaml` and creates **`fidelia-docs`** (Python, free plan, Frankfurt).
+2. Once it is live, open the service's **Environment** tab: the login is
+   `DOCS_USERNAME` (`fidelia`) and `DOCS_PASSWORD`, which Render generated.
+   Change the password there to rotate it; the service restarts with it.
+3. Share the address and login only with people allowed to read every page,
+   internal ones included.
+
+The free plan sleeps after 15 minutes without a visit and takes about a
+minute to wake; set `plan: starter` in `render.yaml` to keep it always on.
+The server refuses to start without a password of 16 characters or more.
+After 10 wrong logins in 10 minutes, an address is refused for 10 minutes.
+
+Run it locally as on Render:
+
+```bash
+mkdocs build --strict
+DOCS_PASSWORD=a-local-password-of-16+ python server.py   # http://127.0.0.1:8000
+python -m pytest -q tests                                  # the server's tests
+```
+
 ## Where the documents come from
 
 This repository is the only home of the documentation. It was moved here on

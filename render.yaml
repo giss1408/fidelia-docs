@@ -1,0 +1,33 @@
+# Render Blueprint: the Fidelia documentation, behind one shared login.
+# Render dashboard → New → Blueprint → pick this repository.
+#
+# A web service, not a static site: the docs hold internal and confidential
+# pages (finance, investor readiness, partner drafts), and a Render static site
+# cannot ask for a password. The build writes site/ with MkDocs; server.py
+# serves it with HTTP basic auth over Render's HTTPS.
+#
+# The login is DOCS_USERNAME / DOCS_PASSWORD. Render generates the password on
+# the first deploy: read it in the service's Environment tab, change it there
+# to rotate it, and share it only with people who may read every page.
+
+services:
+  - type: web
+    runtime: python
+    name: fidelia-docs
+    # Free sleeps after 15 minutes idle (about a minute to wake on the next
+    # visit). Switch to starter to keep it always on.
+    plan: free
+    region: frankfurt
+    branch: main
+    buildCommand: pip install -r requirements.txt && mkdocs build --strict
+    startCommand: python server.py
+    healthCheckPath: /healthz
+    pullRequestPreviewsEnabled: false
+    envVars:
+      # Same Python as CI (.github/workflows/docs.yml).
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: DOCS_USERNAME
+        value: fidelia
+      - key: DOCS_PASSWORD
+        generateValue: true

@@ -17,3 +17,5 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: mkdocs build --strict
+      # The server that puts the site behind its login on Render (server.py).
+      - run: pip install pytest && python -m pytest -q tests
