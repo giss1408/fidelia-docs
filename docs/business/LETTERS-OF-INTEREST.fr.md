@@ -1,6 +1,6 @@
 # Fidelia — Lettres d'intérêt (modèles)
 
-*Modèles à signer · octobre 2026* · [English version](LETTERS-OF-INTEREST.md)
+*Modèles à signer · octobre 2026*
 
 Deux lettres d'intérêt, sans engagement : une pour un commerçant du pilote, une pour une institution de microfinance (IMF). Signées, elles remplacent la traction qu'un projet en pré-pilote ne peut pas encore montrer : elles prouvent que des commerçants et une institution agréée veulent essayer Fidelia.
 
@@ -12,7 +12,7 @@ Deux lettres d'intérêt, sans engagement : une pour un commerçant du pilote, u
 - Pour une IMF : envoyer d'abord la lettre par e-mail au responsable concerné, puis la faire signer par une personne habilitée (directeur général ou délégué).
 - Ne jamais présenter la lettre comme un contrat, ni comme une condition pour obtenir un crédit.
 
-Une fois signées, les lettres sont scannées et ajoutées à la data room ; le dossier investisseur mentionne leur nombre dans la section « Traction » ([INVESTOR-BRIEF.fr.md](INVESTOR-BRIEF.fr.md)), jamais les données personnelles des signataires.
+Une fois signées, les lettres sont scannées et ajoutées à la data room ; le dossier investisseur mentionne leur nombre dans la section « Traction » ([INVESTOR-BRIEF.md](INVESTOR-BRIEF.md)), jamais les données personnelles des signataires.
 
 ---
 

@@ -6,7 +6,7 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  language: fr
+  language: en
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -48,7 +48,49 @@ markdown_extensions:
 
 plugins:
   - search:
-      lang: [fr, en]
+      lang: [en, fr]
+  # Two sites from one source: page.md is English (served at /), page.fr.md is
+  # French (served at /fr/). A page with no French file falls back to English.
+  # Link to page.md from either language; the plugin picks the right one.
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          name: English
+          default: true
+          build: true
+        - locale: fr
+          name: Français
+          build: true
+          site_name: Fidelia — Documentation
+          site_description: Documentation business, réglementaire et technique de Fidelia.
+          nav:
+            - Accueil: README.md
+            - Business:
+                - Concept: business/CONCEPT.md
+                - Marché: business/MARKET.md
+                - Modèle économique: business/BUSINESS-MODEL.md
+                - Feuille de route: business/ROADMAP.md
+                - Indicateurs clés: business/KPI.md
+                - Partenaires: business/PARTNERS.md
+                - Investisseurs:
+                    - Dossier investisseur: business/INVESTOR-BRIEF.md
+                    - Préparation à la levée: business/INVESTOR-READINESS.md
+                    - Lettres d'intérêt: business/LETTERS-OF-INTEREST.md
+                - Finances: business/FINANCE.md
+                - Proposition pilote Fin'ELLE: business/PROPOSITION-PILOTE-FINELLE.md
+            - Réglementation:
+                - Données personnelles et ARTCI: Reglementation/ARTCI.md
+            - Technique:
+                - Guide technique: technical/TECHNICAL-GUIDE.md
+                - Inscription des utilisateurs: technical/ENROLLMENT.md
+                - Déploiement de test: technical/DEPLOY-TEST.md
+                - Serveur de test VPS: technical/VPS-TEST-SERVER.md
+                - Production: technical/PRODUCTION.md
+                - Google Play: technical/PLAY-STORE.md
 
 nav:
   - Home: README.md
@@ -61,15 +103,9 @@ nav:
       - Partners: business/PARTNERS.md
       - Investors:
           - Investor brief: business/INVESTOR-BRIEF.md
-          - Dossier investisseur (FR): business/INVESTOR-BRIEF.fr.md
           - Investor readiness: business/INVESTOR-READINESS.md
-          - Préparation à la levée (FR): business/INVESTOR-READINESS.fr.md
           - Letters of interest: business/LETTERS-OF-INTEREST.md
-          - Lettres d'intérêt (FR): business/LETTERS-OF-INTEREST.fr.md
-      - Finance:
-          - Budget, forecast and evidence: business/FINANCE.md
-          - Budget, prévisions et preuves (FR): business/FINANCE.fr.md
-      - Proposition pilote Fin'ELLE (FR): business/PROPOSITION-PILOTE-FINELLE.fr.md
+      - Finance: business/FINANCE.md
   - Regulation:
       - Personal data and ARTCI: Reglementation/ARTCI.md
   - Technical:

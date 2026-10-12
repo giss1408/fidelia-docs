@@ -1,10 +1,10 @@
 # Fidelia — Dossier investisseur
 
-*Pré-amorçage · Abidjan, Côte d'Ivoire · octobre 2026* · [English version](INVESTOR-BRIEF.md)
+*Pré-amorçage · Abidjan, Côte d'Ivoire · octobre 2026*
 
 > **Éléments à compléter.** Tout ce qui est marqué `[À COMPLÉTER]` (immatriculation, actionnariat) est une donnée fictive à remplacer avant tout envoi. Les chiffres de marché sont sourcés dans [MARKET.md](MARKET.md) et doivent être revérifiés avant tout usage contractuel.
 >
-> Ce document est la traduction de [INVESTOR-BRIEF.md](INVESTOR-BRIEF.md). Toute modification doit être reportée dans les deux versions, ainsi que dans les pages web (`backend-api/app/investor_brief/`, servies derrière le mot de passe investisseur à `<API>/brief/`).
+> Ce document est la traduction de `INVESTOR-BRIEF.md`. Toute modification doit être reportée dans les deux versions, ainsi que dans les pages web (`backend-api/app/investor_brief/`, servies derrière le mot de passe investisseur à `<API>/brief/`).
 
 ## En une phrase
 
@@ -35,7 +35,7 @@ Fidelia se branche sur le portefeuille que le commerçant utilise déjà (Wave d
 | Construit (prototypes, branche `integration`) | Preuves attendues de la phase 0 |
 |---|---|
 | Connexion par numéro de téléphone et code SMS | Entretiens avec 5 à 10 gérants de maquis et d'épiceries d'une commune |
-| Ventes hors ligne, synchronisées sans doublon, testées sur un vrai téléphone | Lettres d'intérêt signées : commerçants et une IMF ([modèles](LETTERS-OF-INTEREST.fr.md)) |
+| Ventes hors ligne, synchronisées sans doublon, testées sur un vrai téléphone | Lettres d'intérêt signées : commerçants et une IMF ([modèles](LETTERS-OF-INTEREST.md)) |
 | Points et récompenses ; alertes de bons plans ; « Client venu » au comptoir | Réponse de Wave sur l'accès à son API |
 | Capture des paiements Wave du commerçant, en test | Un premier commerçant en conditions réelles |
 
@@ -121,7 +121,7 @@ Le tour finance le pilote de six mois, en deux tranches. Chaque tranche paie une
 
 | | |
 |---|---|
-| Tour | Pré-amorçage, **tour pilote : 31 M FCFA (47 260 €, environ 53 000 USD)**. Il finance uniquement le pilote de six mois, tel que budgété dans [FINANCE.fr.md](FINANCE.fr.md) |
+| Tour | Pré-amorçage, **tour pilote : 31 M FCFA (47 260 €, environ 53 000 USD)**. Il finance uniquement le pilote de six mois, tel que budgété dans [FINANCE.md](FINANCE.md) |
 | Tranche 1, à la signature | **14 M FCFA (21 340 €)** pour les mois 1–2 : revue réglementaire et protection des données, préparation à la production (connexion par numéro, capture Wave, revue de sécurité), appareils de test |
 | Tranche 2, au seuil de sortie de la phase 0 | **17 M FCFA (25 920 €)** pour les mois 3–6, le pilote sur le terrain. Versée quand un partenaire de paiement agréé est confirmé et que Wave a répondu sur l'accès à son API, que 5 à 10 maquis et épiceries ont signé l'accord de pilote, et que la revue de préparation à la production n'a plus de point critique ouvert |
 | Instrument | BSA AIR adapté au droit OHADA (modèle ABAN, revu par un avocat OHADA) : ni intérêts ni remboursement ; converti en actions au prochain tour valorisé |

@@ -2,6 +2,8 @@
 
 > **Fidelia turns everyday sales at neighbourhood shops into proof: a verified business history that the merchant owns and, with consent, can take to a licensed lender.**
 
+*This site is in English and French: use the language menu at the top. The investor brief, investor readiness, finance and letters of interest exist in both languages; the Fin'ELLE proposal is in French only; other pages are in English on both sites.*
+
 ## Business: what Fidelia is and why it will work
 
 | Document | Answers |
@@ -12,11 +14,11 @@
 | [Roadmap](business/ROADMAP.md) | Where we stand today, phases 0–6 with exit gates, strategic horizon. |
 | [KPIs](business/KPI.md) | The North Star, the scorecard per phase, how each KPI is computed and where the data lives, targets, external benchmarks, measurement gaps. |
 | [Partners](business/PARTNERS.md) | Institution directory, contact order, acquisition channels, meeting kit, guardrails. |
-| Investor brief ([EN](business/INVESTOR-BRIEF.md) · [FR](business/INVESTOR-BRIEF.fr.md)) | The summary for investors: opportunity, product, traction, market, model, competition, three-year forecast, team, the ask (a XOF 31M pilot round in two tranches), return and risks. *Company details and team track records still to fill before sending.* |
-| Investor readiness ([EN](business/INVESTOR-READINESS.md) · [FR](business/INVESTOR-READINESS.fr.md)) | Internal: what investors and a crowdfunding campaign will look for and not find yet, the rewritten story, market sizing, competitors and next steps. |
-| Finance ([EN](business/FINANCE.md) · [FR](business/FINANCE.fr.md)) | The single financial model: itemized six-month pilot budget (XOF 30.82M), three-year forecast and its assumptions, tranche release gates, supplier-quote and evidence registers. The investor brief's numbers come from here. |
-| [Fin'ELLE pilot proposal](business/PROPOSITION-PILOTE-FINELLE.fr.md) (FR) | Draft proposal to Fin'ELLE: a free six-month pilot where 10–20 of its merchant clients use Fidelia and, with their consent, share a signed sales statement; safeguards, timeline, success measures. *Placeholders to fill and an internal note to remove before sending.* |
-| Letters of interest ([EN](business/LETTERS-OF-INTEREST.md) · [FR](business/LETTERS-OF-INTEREST.fr.md)) | Non-binding templates for a pilot merchant and an MFI to sign. The French version is the one to sign. |
+| [Investor brief](business/INVESTOR-BRIEF.md) | The summary for investors: opportunity, product, traction, market, model, competition, three-year forecast, team, the ask (a XOF 31M pilot round in two tranches), return and risks. *Company details and team track records still to fill before sending.* |
+| [Investor readiness](business/INVESTOR-READINESS.md) | Internal: what investors and a crowdfunding campaign will look for and not find yet, the rewritten story, market sizing, competitors and next steps. |
+| [Finance](business/FINANCE.md) | The single financial model: itemized six-month pilot budget (XOF 30.82M), three-year forecast and its assumptions, tranche release gates, supplier-quote and evidence registers. The investor brief's numbers come from here. |
+| [Fin'ELLE pilot proposal](fr/business/PROPOSITION-PILOTE-FINELLE/) (French only) | Draft proposal to Fin'ELLE: a free six-month pilot where 10–20 of its merchant clients use Fidelia and, with their consent, share a signed sales statement; safeguards, timeline, success measures. *Placeholders to fill and an internal note to remove before sending.* |
+| [Letters of interest](business/LETTERS-OF-INTEREST.md) | Non-binding templates for a pilot merchant and an MFI to sign. The French version is the one to sign. |
 
 ## Technical: how it is built and run
 
@@ -47,6 +49,7 @@ App-specific docs live with each app: [merchant app architecture](https://github
 ## Keeping documents in sync
 
 - These business documents are the **source of truth**. The public site copy (`fidelia-Web/src/content/fr.js` and `en.js`) and app wording must follow them.
+- A bilingual page is two files, `page.md` (English) and `page.fr.md` (French), and both change together. Link to `page.md` from either language; the site serves the right one. Adding a French page only needs the `.fr.md` file, plus an entry in the French `nav` in `mkdocs.yml`.
 - The roadmap's "Where we stand" table must be updated when a capability ships or a gate is passed.
 - Market figures always carry their source and must be re-verified before external or contractual use.
 - The original French research and the "Dkassa" instruction notes were consolidated into these documents on 30 September 2026. The originals remain in git history.

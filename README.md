@@ -12,7 +12,15 @@ mkdocs serve            # http://127.0.0.1:8000, reloads on every save
 ```
 
 Pages are Markdown files in `docs/`. A new page must also be listed under
-`nav:` in `mkdocs.yml`. `mkdocs build --strict` (run by CI on every push)
+`nav:` in `mkdocs.yml`.
+
+The site is built in two languages with
+[mkdocs-static-i18n](https://ultrabug.github.io/mkdocs-static-i18n/):
+English at `/`, French at `/fr/`. `page.md` is the English page and
+`page.fr.md` its French translation; a page without a French file is shown in
+English on the French site. Link to `page.md` from either language. The French
+navigation is the `nav` under the `fr` language in `mkdocs.yml`; keep it in
+step with the English `nav:`. `mkdocs build --strict` (run by CI on every push)
 fails on a broken link or a page missing from the navigation.
 
 Links to code point at the repositories on GitHub (`djassa-BE`,

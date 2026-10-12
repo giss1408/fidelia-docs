@@ -1,10 +1,10 @@
 # Fidelia — Letters of Interest (templates)
 
-*Templates to sign · October 2026* · [Version française](LETTERS-OF-INTEREST.fr.md)
+*Templates to sign · October 2026*
 
 Two non-binding letters of interest: one for a pilot merchant, one for a microfinance institution (MFI). Signed, they stand in for the traction a pre-pilot project cannot show yet: they prove that merchants and a licensed institution want to try Fidelia.
 
-**The French version is the one people sign** ([LETTERS-OF-INTEREST.fr.md](LETTERS-OF-INTEREST.fr.md)); this English version is for investors and partners who read English.
+**The French version is the one people sign** (switch the site to Français); this English version is for investors and partners who read English.
 
 **Before asking for a signature:**
 

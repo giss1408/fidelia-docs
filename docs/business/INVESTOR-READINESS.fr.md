@@ -1,6 +1,6 @@
 # Fidelia — Préparation à la levée : constats, récit et chiffres
 
-*10 octobre 2026 · document de travail interne, pas pour les investisseurs* · [English version](INVESTOR-READINESS.md). La version destinée aux investisseurs est [INVESTOR-BRIEF.fr.md](INVESTOR-BRIEF.fr.md) ([anglais](INVESTOR-BRIEF.md)), servie derrière le mot de passe à `<API>/brief/`. Les chiffres doivent rester identiques ici et là-bas.
+*10 octobre 2026 · document de travail interne, pas pour les investisseurs* La version destinée aux investisseurs est le [dossier investisseur](INVESTOR-BRIEF.md), servie derrière le mot de passe à `<API>/brief/`. Les chiffres doivent rester identiques ici et là-bas.
 
 > Ce document est la traduction de [INVESTOR-READINESS.md](INVESTOR-READINESS.md). Toute modification doit être reportée dans les deux versions.
 
@@ -21,7 +21,7 @@ Fidelia est bien pensé, mais il a été écrit pour des régulateurs et des ana
 
 **Spécifique au financement participatif.** Une foule suit un chef de file : obtenir d'abord un investisseur providentiel, un accélérateur ou une subvention, et viser 30 à 40 % de l'objectif engagés avant l'ouverture de la campagne. La diaspora ivoirienne est une foule naturelle ; construire cette audience avant le lancement avec des histoires de commerçants. Le BSA AIR prévu convient aux investisseurs providentiels ; une campagne publique passe par une plateforme agréée selon les règles UEMOA sur le financement participatif, à confirmer par un avocat OHADA. Une campagne de don ou à contrepartie d'abord (« équiper un maquis ») peut construire l'audience et les preuves avant un tour en capital.
 
-Sources : [CONCEPT.md](CONCEPT.md), [BUSINESS-MODEL.md](BUSINESS-MODEL.md), [MARKET.md](MARKET.md), [FINANCE.fr.md](FINANCE.fr.md). Chaque chiffre des prévisions est une hypothèse à tester, signalée comme telle.
+Sources : [CONCEPT.md](CONCEPT.md), [BUSINESS-MODEL.md](BUSINESS-MODEL.md), [MARKET.md](MARKET.md), [FINANCE.md](FINANCE.md). Chaque chiffre des prévisions est une hypothèse à tester, signalée comme telle.
 
 ## Le récit, réécrit
 
@@ -67,7 +67,7 @@ Non comptés : les autres villes ivoiriennes (Bouaké, San-Pédro, Yamoussoukro)
 
 ## Prévisions sur trois ans
 
-Déplacées dans [FINANCE.fr.md § 3](FINANCE.fr.md), le seul modèle financier de Fidelia : 1 800 commerçants payants à la fin de l'année 3, coûts fixes couverts à partir de 1 250 commerçants payants (T11), environ 148 M FCFA nécessaires au total, en deux tours (ce tour pilote de 31 M FCFA, puis un tour d'amorçage d'environ 120 M FCFA).
+Déplacées dans [FINANCE.md § 3](FINANCE.md), le seul modèle financier de Fidelia : 1 800 commerçants payants à la fin de l'année 3, coûts fixes couverts à partir de 1 250 commerçants payants (T11), environ 148 M FCFA nécessaires au total, en deux tours (ce tour pilote de 31 M FCFA, puis un tour d'amorçage d'environ 120 M FCFA).
 
 ## Tableau de la concurrence
 
@@ -94,7 +94,7 @@ Les preuves viennent avant la campagne : immatriculer la société et réunir le
 3. Lancer un vrai commerçant, même sans paiement, et le filmer au comptoir (vidéo de 90 secondes).
 4. Recruter 2 à 3 conseillers (IMF, mobile money, droit UEMOA) et rédiger le parcours des fondateurs.
 5. Confronter les hypothèses de marché et de prévisions ci-dessus aux résultats des entretiens.
-6. ~~Réécrire le dossier investisseur~~ Fait le 10 octobre 2026 ([INVESTOR-BRIEF.fr.md](INVESTOR-BRIEF.fr.md)) ; remplacer sa colonne « preuves attendues » par les résultats réels au fur et à mesure.
+6. ~~Réécrire le dossier investisseur~~ Fait le 10 octobre 2026 ([INVESTOR-BRIEF.md](INVESTOR-BRIEF.md)) ; remplacer sa colonne « preuves attendues » par les résultats réels au fur et à mesure.
 7. Confirmer la voie du financement participatif avec un avocat OHADA : plateforme agréée, instrument, plafonds par investisseur.
 8. Obtenir un investisseur chef de file ou une subvention, viser 30 à 40 % d'engagements, puis lancer la campagne.
 

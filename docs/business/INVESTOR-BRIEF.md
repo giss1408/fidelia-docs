@@ -1,10 +1,10 @@
 # Fidelia — Investor Brief
 
-*Pre-seed · Abidjan, Côte d'Ivoire · October 2026* · [Version française](INVESTOR-BRIEF.fr.md)
+*Pre-seed · Abidjan, Côte d'Ivoire · October 2026*
 
 > **Placeholders.** Everything marked `[PLACEHOLDER]` (company registration, ownership) is dummy data to be replaced before this brief is sent to anyone. Market figures carry their sources in [MARKET.md](MARKET.md) and must be re-checked before contractual use.
 >
-> Keep this file, its French translation ([INVESTOR-BRIEF.fr.md](INVESTOR-BRIEF.fr.md)) and the web pages (`backend-api/app/investor_brief/`, served behind the investor password at `<API>/brief/`) in step: a change to one is a change to all three.
+> Keep this file, its French translation (`INVESTOR-BRIEF.fr.md`) and the web pages (`backend-api/app/investor_brief/`, served behind the investor password at `<API>/brief/`) in step: a change to one is a change to all three.
 
 ## In one sentence
 

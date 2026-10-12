@@ -1,6 +1,6 @@
 # Fidelia — Finance: pilot budget, forecast and evidence
 
-*Working document · October 2026 · Côte d'Ivoire · XOF · [Version française](FINANCE.fr.md)*
+*Working document · October 2026 · Côte d'Ivoire · XOF*
 
 This is Fidelia's **only financial model**. The figures in the [investor brief](INVESTOR-BRIEF.md) come from it; when a number changes here, change it there too (and in its French version and the web pages it names).
 

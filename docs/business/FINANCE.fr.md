@@ -1,8 +1,8 @@
 # Fidelia — Finances : budget du pilote, prévisions et preuves
 
-*Document de travail · octobre 2026 · Côte d'Ivoire · XOF · [English version](FINANCE.md)*
+*Document de travail · octobre 2026 · Côte d'Ivoire · XOF*
 
-Ce document est le **seul modèle financier** de Fidelia. Les chiffres du [dossier investisseur](INVESTOR-BRIEF.fr.md) en sont tirés ; quand un chiffre change ici, le changer aussi là-bas (ainsi que dans sa version anglaise et les pages web qu'il cite).
+Ce document est le **seul modèle financier** de Fidelia. Les chiffres du [dossier investisseur](INVESTOR-BRIEF.md) en sont tirés ; quand un chiffre change ici, le changer aussi là-bas (ainsi que dans sa version anglaise et les pages web qu'il cite).
 
 Les équivalents en euros sont calculés au taux fixe de **1 € = 655,957 XOF** et arrondis à deux décimales. Le XOF reste la devise de référence pour l'exploitation et les contrats ; les montants en euros sont fournis à titre comparatif. **Chaque montant est une estimation de gestion ou une hypothèse à tester, pas un devis fournisseur ni un résultat observé.**
 
@@ -208,4 +208,4 @@ Marge après coûts variables = (abonnements encaissés − coûts variables) ÷
 
 ## Documents liés
 
-[INVESTOR-BRIEF.fr.md](INVESTOR-BRIEF.fr.md) · [INVESTOR-READINESS.fr.md](INVESTOR-READINESS.fr.md) · [BUSINESS-MODEL.md](BUSINESS-MODEL.md) · [ROADMAP.md](ROADMAP.md) · [PARTNERS.md](PARTNERS.md)
+[INVESTOR-BRIEF.md](INVESTOR-BRIEF.md) · [INVESTOR-READINESS.md](INVESTOR-READINESS.md) · [BUSINESS-MODEL.md](BUSINESS-MODEL.md) · [ROADMAP.md](ROADMAP.md) · [PARTNERS.md](PARTNERS.md)
