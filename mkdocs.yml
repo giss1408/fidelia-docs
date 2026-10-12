@@ -7,6 +7,9 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   language: en
+  # The Fidelia mark, copied from fidelia-brand/fidelia-mark.svg.
+  logo: assets/fidelia-mark.svg
+  favicon: assets/fidelia-mark.svg
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
