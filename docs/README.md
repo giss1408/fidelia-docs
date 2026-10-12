@@ -13,16 +13,10 @@
 | [KPIs](business/KPI.md) | The North Star, the scorecard per phase, how each KPI is computed and where the data lives, targets, external benchmarks, measurement gaps. |
 | [Partners](business/PARTNERS.md) | Institution directory, contact order, acquisition channels, meeting kit, guardrails. |
 | Investor brief ([EN](business/INVESTOR-BRIEF.md) · [FR](business/INVESTOR-BRIEF.fr.md)) | The summary for investors: opportunity, product, traction, market, model, competition, three-year forecast, team, the ask (a XOF 31M pilot round in two tranches), return and risks. *Company details and team track records still to fill before sending.* |
-| Investor readiness ([EN](business/INVESTOR-READINESS.md) · [FR](business/INVESTOR-READINESS.fr.md)) | Internal: what investors and a crowdfunding campaign will look for and not find yet, the rewritten story, market sizing, the forecast's assumptions, competitors and next steps. |
+| Investor readiness ([EN](business/INVESTOR-READINESS.md) · [FR](business/INVESTOR-READINESS.fr.md)) | Internal: what investors and a crowdfunding campaign will look for and not find yet, the rewritten story, market sizing, competitors and next steps. |
+| Finance ([EN](business/FINANCE.md) · [FR](business/FINANCE.fr.md)) | The single financial model: itemized six-month pilot budget (XOF 30.82M), three-year forecast and its assumptions, tranche release gates, supplier-quote and evidence registers. The investor brief's numbers come from here. |
 | [Fin'ELLE pilot proposal](business/PROPOSITION-PILOTE-FINELLE.fr.md) (FR) | Draft proposal to Fin'ELLE: a free six-month pilot where 10–20 of its merchant clients use Fidelia and, with their consent, share a signed sales statement; safeguards, timeline, success measures. *Placeholders to fill and an internal note to remove before sending.* |
 | Letters of interest ([EN](business/LETTERS-OF-INTEREST.md) · [FR](business/LETTERS-OF-INTEREST.fr.md)) | Non-binding templates for a pilot merchant and an MFI to sign. The French version is the one to sign. |
-
-## Planning: reviews and action plans
-
-| Document | Answers |
-|---|---|
-| [Concept review and optimization proposals](planning/optimization_claude_fidelia.md) | Independent review of the concept as documented and as implemented, revenue options, optimization proposals. Written before the Wave-first revenue decision; where they differ, [Business model](business/BUSINESS-MODEL.md) wins. |
-| [Implementation action plan](planning/action_plan_claude_fidelia.md) | Ordered workstreams, per-step file changes, test criteria, decision gates and sequencing for the review's findings. |
 
 ## Technical: how it is built and run
 
@@ -33,6 +27,7 @@
 | [Test deployment (free)](technical/DEPLOY-TEST.md) | API on Render free + Neon, signed APKs on GitHub Releases, the WhatsApp install link, Firebase App Distribution. |
 | [VPS test server](technical/VPS-TEST-SERVER.md) | Ubuntu VPS setup and automated test deployment. |
 | [Production](technical/PRODUCTION.md) | Going live on Render's paid plan: deploy, settings, Grafana Cloud metrics and alerts, uptime monitors, logs, what to do when an alert fires. |
+| [Google Play](technical/PLAY-STORE.md) | Release steps (build, internal and closed testing, later releases) and the Play forms: signing, store listing, app content, Data safety, account deletion. |
 | [Architecture](https://github.com/giss1408/djassa-BE/blob/integration/Architecture/README.md) | Topology, application and container security, secrets, Kubernetes. |
 | [Contributing](https://github.com/giss1408/djassa-BE/blob/integration/CONTRIBUTING.md) | Branches, tests, security checklist, pull requests. |
 | [Monitoring alerts](https://github.com/giss1408/djassa-BE/blob/integration/monitoring/ALERTS.md) | Operational thresholds and access rules. |
@@ -44,7 +39,7 @@ App-specific docs live with each app: [merchant app architecture](https://github
 | You are… | Read |
 |---|---|
 | **A merchant or user-facing team member** | Concept §§ 3–6 and § 9 |
-| **An investor** | Investor brief first; then Concept → Market → Business model → Roadmap |
+| **An investor** | Investor brief first; then Concept → Market → Business model → Roadmap → Finance |
 | **An institution or regulator** | Concept §§ 6–8 and § 11 → Market § 4 → Roadmap |
 | **A financial or payment partner** | Concept §§ 3, 6 and 9 → Business model → Partners |
 | **A developer** | Concept → Roadmap § Where we stand → Technical guide |
@@ -55,3 +50,4 @@ App-specific docs live with each app: [merchant app architecture](https://github
 - The roadmap's "Where we stand" table must be updated when a capability ships or a gate is passed.
 - Market figures always carry their source and must be re-verified before external or contractual use.
 - The original French research and the "Dkassa" instruction notes were consolidated into these documents on 30 September 2026. The originals remain in git history.
+- On 12 October 2026 the documentation was cleaned up: the budget and finance-validation packs were merged into `FINANCE.md` (one financial model); the two Google Play guides into `PLAY-STORE.md`; the 29 September concept review and action plan (done or superseded; open items moved to the roadmap), the two external concept reviews and the obsolete investor-room setup were removed. All remain in git history.

@@ -21,7 +21,7 @@ Fidelia est bien pensé, mais il a été écrit pour des régulateurs et des ana
 
 **Spécifique au financement participatif.** Une foule suit un chef de file : obtenir d'abord un investisseur providentiel, un accélérateur ou une subvention, et viser 30 à 40 % de l'objectif engagés avant l'ouverture de la campagne. La diaspora ivoirienne est une foule naturelle ; construire cette audience avant le lancement avec des histoires de commerçants. Le BSA AIR prévu convient aux investisseurs providentiels ; une campagne publique passe par une plateforme agréée selon les règles UEMOA sur le financement participatif, à confirmer par un avocat OHADA. Une campagne de don ou à contrepartie d'abord (« équiper un maquis ») peut construire l'audience et les preuves avant un tour en capital.
 
-Sources : [CONCEPT.md](CONCEPT.md), [BUSINESS-MODEL.md](BUSINESS-MODEL.md), [MARKET.md](MARKET.md), [FINANCE-BUDGET.fr.md](FINANCE-BUDGET.fr.md). Chaque chiffre des prévisions est une hypothèse à tester, signalée comme telle.
+Sources : [CONCEPT.md](CONCEPT.md), [BUSINESS-MODEL.md](BUSINESS-MODEL.md), [MARKET.md](MARKET.md), [FINANCE.fr.md](FINANCE.fr.md). Chaque chiffre des prévisions est une hypothèse à tester, signalée comme telle.
 
 ## Le récit, réécrit
 
@@ -67,32 +67,7 @@ Non comptés : les autres villes ivoiriennes (Bouaké, San-Pédro, Yamoussoukro)
 
 ## Prévisions sur trois ans
 
-Avec 1 800 commerçants payants à la fin de l'année 3, Fidelia encaisse environ **14 millions de FCFA par mois** et couvre ses coûts fixes ; il lui faut environ **148 millions de FCFA au total** pour y arriver, en deux tours. Chaque chiffre est une hypothèse à remplacer par les résultats du pilote.
-
-Commerçants payants à chaque fin de trimestre, depuis le début du pilote : T1 0 · T2 4 · T3 40 · T4 100 · T5 180 · T6 280 · T7 420 · T8 600 · T9 800 · T10 1 050 · T11 1 400 · T12 1 800. Les coûts fixes sont couverts à partir de 313 commerçants payants en année 1 (après le pilote), 625 en année 2 et **1 250 en année 3, atteints au T11**. Les pertes augmentent encore en année 3, parce que les dépenses d'acquisition augmentent avec le nombre de commerçants.
-
-| M FCFA | Année 1 | Année 2 | Année 3 |
-|---|---:|---:|---:|
-| Commerçants payants en fin d'année | 100 | 600 | 1 800 |
-| Revenus | 2,1 | 29,2 | 105,5 |
-| Coûts fixes (l'année 1 inclut le pilote de 30,8) | 42,8 | 48,0 | 96,0 |
-| Acquisition | 4,0 | 20,0 | 48,0 |
-| Coûts variables | 0,4 | 5,5 | 20,0 |
-| **Résultat net** | **−45,1** | **−44,4** | **−58,6** |
-| Besoin de financement cumulé | 45,1 | 89,5 | 148,1 |
-
-| Hypothèse | Valeur | Fondement |
-|---|---|---|
-| Abonnement | 7 500 F / mois / point de vente, moyenne | Milieu des formules à 5 000 F et 10 000–15 000 F ; même chiffre que [FINANCE-BUDGET.fr.md](FINANCE-BUDGET.fr.md) |
-| Bons plans sponsorisés, dès l'année 2 | 10 % des commerçants achètent 2 emplacements par mois à 2 000 F (+400 F par commerçant) | Prix d'emplacement testés entre 1 000 et 3 000 F pour 7 jours ([BUSINESS-MODEL.md](BUSINESS-MODEL.md)) |
-| Conversion du pilote | 4 commerçants du pilote sur 10 paient au mois 6 | Le seuil de sortie du pilote, ≥ 40 % |
-| Croissance | 100, 600 et 1 800 commerçants payants en fin d'année, départs déduits | Une commune, puis d'autres communes d'Abidjan ; à recalculer à partir du rythme d'acquisition réel du pilote |
-| Coût d'acquisition | 40 000 F par nouveau commerçant payant | Agents de terrain et commissions de revendeurs ; le pilote budgète 50 000 F par intégration |
-| Coût variable | 1 500 F / mois / commerçant | Hébergement, codes SMS, support |
-| Coûts fixes | Pilote 30,8 M, puis 2 M / mois (année 1), 4 M (année 2), 8 M (année 3) | [FINANCE-BUDGET.fr.md](FINANCE-BUDGET.fr.md), puis une équipe terrain et un support qui grandissent avec les commerçants |
-| Commissions partenaires | 0 | Non supposées tant qu'aucun accord partenaire n'existe |
-
-Chemin de financement : ce tour pilote (31 M FCFA), puis un tour d'amorçage d'environ 120 M FCFA (180 k€) une fois le seuil du pilote atteint. Une subvention (APIF-CI, BAD, develoPPP) réduit les deux.
+Déplacées dans [FINANCE.fr.md § 3](FINANCE.fr.md), le seul modèle financier de Fidelia : 1 800 commerçants payants à la fin de l'année 3, coûts fixes couverts à partir de 1 250 commerçants payants (T11), environ 148 M FCFA nécessaires au total, en deux tours (ce tour pilote de 31 M FCFA, puis un tour d'amorçage d'environ 120 M FCFA).
 
 ## Tableau de la concurrence
 

@@ -182,7 +182,7 @@ Fidelia does **not**:
 
 *Decided 10 October 2026, revised the same day after founder input on how merchants attract customers in Abidjan. These boundaries hold until the Phase 1 exit gate ([ROADMAP.md](ROADMAP.md#phase-1--merchant-mvp-record-pay-reward--next)). Where an earlier section of this document describes something wider, this section wins for the pilot. The long-term concept stays as written.*
 
-**Why.** Two founders and a XOF 30.82M pilot budget ([FINANCE-BUDGET.md](FINANCE-BUDGET.md)) cannot validate five uses and six phases at once. The code is already ahead of the business validation. For the pilot, we validate two things: **do maquis and grocery owners keep using Fidelia, and does the customer app bring them customers?** Merchants attract customers today by word of mouth, by being nearby and through social networks. The customer app turns that into a map, offers with notifications, and points. Bringing new customers is the main thing a merchant will later pay for.
+**Why.** Two founders and a XOF 30.82M pilot budget ([FINANCE.md](FINANCE.md)) cannot validate five uses and six phases at once. The code is already ahead of the business validation. For the pilot, we validate two things: **do maquis and grocery owners keep using Fidelia, and does the customer app bring them customers?** Merchants attract customers today by word of mouth, by being nearby and through social networks. The customer app turns that into a map, offers with notifications, and points. Bringing new customers is the main thing a merchant will later pay for.
 
 ### Decisions
 

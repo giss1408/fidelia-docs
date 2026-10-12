@@ -30,10 +30,8 @@ addresses.
 
 | Section | Contents |
 |---|---|
-| Business | Concept, market, business model, roadmap, KPIs, partners, investor and finance documents |
+| Business | Concept, market, business model, roadmap, KPIs, partners, investor and finance documents (one financial model: `FINANCE.md`) |
 | Regulation | Personal data and ARTCI |
 | Technical | Technical guide, enrollment, deployment (test, VPS, production), Google Play |
-| Planning | Concept review and implementation action plan |
-| Concept reviews | External reviews of the concept and its messaging |
 
 Contact: contact.fidelia@regisse.com

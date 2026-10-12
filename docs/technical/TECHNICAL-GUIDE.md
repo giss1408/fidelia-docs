@@ -22,7 +22,7 @@ API surfaces, by client:
 - **All apps and the site**: `POST /api/client-events` (error reports, no sign-in needed).
 - **Foundations not exposed to users yet**: tontines, consents, identity verification tiers, exports, payments with refunds and disputes (see [ROADMAP.md § Where we stand](../business/ROADMAP.md#where-we-stand)).
 
-Recorded sales (`Merchant`/`Transaction`) and customer payments (`Venue`/`CustomerPayment`/`LoyaltyEntry`) are currently separate models. Unifying them into one merchant event stream is a Phase 1 requirement.
+Recorded sales, captured wallet payments and customer payments all write one stream, `SaleEvent` (`sale_events`), each row labelled `mobile_money_confirmed` or `cash_declared`; legacy sales without a clear owner are held in quarantine ([ROADMAP.md § Where we stand](../business/ROADMAP.md#where-we-stand)).
 
 The implementation is still a prototype. Authentication, resource authorization, financial workflows, and production configuration require further hardening before real financial use.
 

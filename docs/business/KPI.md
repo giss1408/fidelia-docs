@@ -123,7 +123,7 @@ Runs only at shops where an admin switched it on. Read from `GET /api/admin/laya
 
 | KPI | Formula | Source in the platform | Status |
 |---|---|---|---|
-| **Recorded share** (North Star) | Sales the server holds for a day ÷ the merchant's end-of-day estimate (`daily_report`), per merchant, over report days | `GET /api/admin/usage?app=retailer` → `merchants[].recorded_share`; `sale_events` + `usage_events` | **Live** (pilot-only self-report, see [action plan W4-3](../planning/action_plan_claude_fidelia.md)) |
+| **Recorded share** (North Star) | Sales the server holds for a day ÷ the merchant's end-of-day estimate (`daily_report`), per merchant, over report days | `GET /api/admin/usage?app=retailer` → `merchants[].recorded_share`; `sale_events` + `usage_events` | **Live** (pilot-only end-of-day self-report by the merchant; remove once the confirmed share makes it moot) |
 | Enrolled outlets | Venues created, excluding `is_sample` | `venues` | Live |
 | Activation rate | Outlets with ≥ 1 recorded sale within 7 days of enrolment ÷ enrolled | `venues.created_at`, `sale_events` | Computable (query) |
 | Time to first sale | Enrolment → first `SaleEvent` | as above | Computable |
@@ -151,7 +151,7 @@ Runs only at shops where an admin switched it on. Read from `GET /api/admin/laya
 | Points issued and redeemed | Sum of positive and negative `LoyaltyEntry.points`, per outlet | `loyalty_entries` | Computable |
 | Redemption rate | Points redeemed ÷ points issued, trailing 90 days | `loyalty_entries` | Computable. Benchmark: ~60% across loyalty platforms |
 | Time to first reward | First visit → first `redeem` entry | `loyalty_entries` | Computable. Target from concept: 3–5 visits (maquis); grocery to set from Phase 0 |
-| **Outstanding points liability** (counter-metric) | Unredeemed points × reward value per point, per outlet | `loyalty_entries`, `loyalty_rewards` | Computable. Points have no expiry yet ([W4-5](../planning/action_plan_claude_fidelia.md)) |
+| **Outstanding points liability** (counter-metric) | Unredeemed points × reward value per point, per outlet | `loyalty_entries`, `loyalty_rewards` | Computable. Points have no expiry yet ([ROADMAP Phase 1](ROADMAP.md#phase-1--merchant-mvp-record-pay-reward--next)) |
 | Reward cost as a share of member sales | Value of rewards redeemed ÷ sales by identified customers | as above | Computable |
 | Customer app installs and active installs (1 / 7 / 30-day) | First launches, installs with activity in the window | `GET /api/admin/usage?app=user` | Live |
 | Customer app retention D1 / D7 / D30 | Installs active on day *n* after install, by install cohort | `usage_events` | Computable. Benchmark (global finance apps): D1 ≈ 22%, D30 ≈ 4% |
@@ -235,9 +235,9 @@ What this scorecard needs and the platform cannot produce yet, in priority order
 | **No notification cost record** | The [hidden risk](BUSINESS-MODEL.md#why-a-merchant-pays-the-value-equation) in the model | Record each paid SMS/WhatsApp send with its venue and unit cost |
 | No log of consent *requests* | Consent rate has no denominator | Event when the counter or app shows the consent prompt |
 | No pre-Fidelia baseline in the platform | The repeat-visit lift is the number that sells the subscription | Phase 0 interview form, stored per venue |
-| Points never expire | Liability grows without limit | Expiry and redemption cap ([W4-5](../planning/action_plan_claude_fidelia.md)) |
+| Points never expire | Liability grows without limit | Expiry and a redemption cap, decided before merchants accumulate balances ([ROADMAP Phase 1](ROADMAP.md#phase-1--merchant-mvp-record-pay-reward--next)) |
 | No reconciliation with settlement reports | Confirmed revenue cannot be certified | Phase 1 payment work |
-| No KPI dashboard combining billing and usage | The gate review needs one page | One admin endpoint or Grafana dashboard over the queries above; `investor_room_metrics` stays curated by hand ([INVESTOR-ROOM-SETUP.md](INVESTOR-ROOM-SETUP.md)) |
+| No KPI dashboard combining billing and usage | The gate review needs one page | One admin endpoint or Grafana dashboard over the queries above |
 
 ---
 

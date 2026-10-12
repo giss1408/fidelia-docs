@@ -121,7 +121,7 @@ The round funds the six-month pilot, in two tranches. Each tranche pays for one 
 
 | | |
 |---|---|
-| Round | Pre-seed **pilot round: XOF 31M (€47,260, about USD 53,000)**. It funds the six-month pilot only, as budgeted in [FINANCE-BUDGET.md](FINANCE-BUDGET.md) |
+| Round | Pre-seed **pilot round: XOF 31M (€47,260, about USD 53,000)**. It funds the six-month pilot only, as budgeted in [FINANCE.md](FINANCE.md) |
 | Tranche 1, at signing | **XOF 14M (€21,340)** for months 1–2: regulatory and data-protection review, production readiness (phone login, Wave capture, security review), test devices |
 | Tranche 2, at the Phase 0 exit gate | **XOF 17M (€25,920)** for months 3–6, the field pilot. Released when a licensed payment partner is confirmed and Wave has answered on API access, 5–10 maquis and grocery owners have signed the pilot agreement, and the production-readiness review has no open critical issue |
 | Instrument | BSA AIR adapted to OHADA law (ABAN template, reviewed by OHADA counsel): no interest and no repayment; converts into shares at the next priced round |

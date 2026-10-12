@@ -60,6 +60,7 @@ A phase is complete when **real users have validated it**, not when the code shi
 - Regulatory review of the QR payment flow: confirm Fidelia's role as a technology partner and the direct wallet-to-wallet flow.
 - Brand name confirmed.
 - Baseline metrics and support process.
+- **On-duty pharmacy data:** name who enters the weekly rotation from the official list, and its monthly cost. There is no official API, so this is a recurring operating cost that no unit-economics figure includes yet.
 
 **Exit gate:** a pilot merchant group and a payment partner are identified; no unresolved blocker on the MVP data or funds flow.
 
@@ -72,6 +73,7 @@ A phase is complete when **real users have validated it**, not when the code shi
 - **Automatic capture of the merchant's existing Wave payments** (signed webhook → event → points for the paying phone number). This is the priority entry point.
 - **One merchant identity and one event stream** covering captured wallet payments, recorded cash sales and Fidelia-route payments.
 - Loyalty rules, points and rewards for all entry points. New customers start with progress already made, and the first reward is reachable in 3–5 visits.
+- **Points expiry and a redemption cap**, decided before merchants accumulate balances. Points never expire today, so a merchant's reward liability grows without limit, which is a sales objection waiting to happen ([KPI.md § 5](KPI.md#5-customer-and-loyalty)).
 - **Customer app, focused scope** ([CONCEPT.md § 12](CONCEPT.md#12-pilot-boundaries)): map of pilot merchants with directions, free merchant offers with push notifications, on-duty pharmacies, points and rewards. Customers without the app identify by phone number at the counter. No WhatsApp or SMS alerts.
 - **Offer use recorded at the counter** in the merchant app, to count the new customers the app brings.
 - Merchant reporting: **daily cash book** (one total across every wallet and cash, the day-1 hook), a weekly report of **"customers who came back"** and **"new customers brought by Fidelia"**, and a signed, consented revenue statement for MFI demos.
@@ -95,6 +97,7 @@ A phase is complete when **real users have validated it**, not when the code shi
 - A second operator adapter for merchants mainly on other networks: MTN MoMo request-to-pay or the Orange Money merchant API, at the operator's own rate rather than an aggregator's.
 - PI-SPI interoperable QR through a licensed partner, if it is live for merchants in Côte d'Ivoire: one QR for every wallet and bank, and the end of per-operator work.
 - Onboarding and support playbook.
+- **Missed-cash nudge:** when a day's recorded cash is far below the merchant's usual share against their confirmed wallet takings, ask "did you miss any sales today?". This raises the recorded share (the master metric) without a new habit.
 - Progressive verification workflow and fraud-review queue, only where the partner and regulator approve.
 
 - **Layaway test** with 2–3 merchants whose goods suit it, never called credit ([BUSINESS-MODEL.md § Layaway test](BUSINESS-MODEL.md#layaway-test)).
@@ -130,6 +133,7 @@ A phase is complete when **real users have validated it**, not when the code shi
 **Goal:** connect eligible merchants and customers to licensed credit and savings partners.
 
 - Written partner agreement; Tier 2 identity and consented data-sharing contract.
+- **Consent per lender, with a time limit:** the merchant chooses which lender sees their history and for how long, and can revoke it at any time.
 - **Merchant credit:** consented revenue-history export for working-capital, stock credit or revenue advance, optionally backed by a guarantee scheme (SGPME, GUDE-PME support).
 - **Goal-based savings** (locked until date or amount), held by the licensed partner, with the holder named in the app.
 - Funds-flow audit before launch; direct fund flow to the provider.

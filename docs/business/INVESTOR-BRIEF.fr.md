@@ -121,7 +121,7 @@ Le tour finance le pilote de six mois, en deux tranches. Chaque tranche paie une
 
 | | |
 |---|---|
-| Tour | Pré-amorçage, **tour pilote : 31 M FCFA (47 260 €, environ 53 000 USD)**. Il finance uniquement le pilote de six mois, tel que budgété dans [FINANCE-BUDGET.fr.md](FINANCE-BUDGET.fr.md) |
+| Tour | Pré-amorçage, **tour pilote : 31 M FCFA (47 260 €, environ 53 000 USD)**. Il finance uniquement le pilote de six mois, tel que budgété dans [FINANCE.fr.md](FINANCE.fr.md) |
 | Tranche 1, à la signature | **14 M FCFA (21 340 €)** pour les mois 1–2 : revue réglementaire et protection des données, préparation à la production (connexion par numéro, capture Wave, revue de sécurité), appareils de test |
 | Tranche 2, au seuil de sortie de la phase 0 | **17 M FCFA (25 920 €)** pour les mois 3–6, le pilote sur le terrain. Versée quand un partenaire de paiement agréé est confirmé et que Wave a répondu sur l'accès à son API, que 5 à 10 maquis et épiceries ont signé l'accord de pilote, et que la revue de préparation à la production n'a plus de point critique ouvert |
 | Instrument | BSA AIR adapté au droit OHADA (modèle ABAN, revu par un avocat OHADA) : ni intérêts ni remboursement ; converti en actions au prochain tour valorisé |

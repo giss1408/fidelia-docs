@@ -19,7 +19,7 @@ Fidelia is well thought out but was written for regulators and analysts, not inv
 
 **Crowdfunding-specific.** A crowd follows a lead: secure an angel, an accelerator or a grant first, and aim for 30–40% of the target committed before the campaign opens. The Ivorian diaspora is a natural crowd; build that audience before launch with merchant stories. The planned BSA AIR suits angels; a public campaign goes through a licensed platform under the UEMOA crowdfunding rules, which OHADA counsel must confirm. A reward or donation campaign first ("equip a maquis") can build the audience and proof before an equity round.
 
-Sources: [CONCEPT.md](CONCEPT.md), [BUSINESS-MODEL.md](BUSINESS-MODEL.md), [MARKET.md](MARKET.md), [FINANCE-BUDGET.md](FINANCE-BUDGET.md). Every forecast figure is an assumption to test, labelled as such.
+Sources: [CONCEPT.md](CONCEPT.md), [BUSINESS-MODEL.md](BUSINESS-MODEL.md), [MARKET.md](MARKET.md), [FINANCE.md](FINANCE.md). Every forecast figure is an assumption to test, labelled as such.
 
 ## The story, rewritten
 
@@ -65,32 +65,7 @@ Not counted: other Ivorian cities (Bouaké, San-Pédro, Yamoussoukro) and partne
 
 ## Three-year forecast
 
-With 1,800 paying merchants at the end of year 3, Fidelia earns about **XOF 14 million a month** and covers its fixed costs; it needs about **XOF 148 million in total** to get there, in two rounds. Every number is an assumption to replace with pilot results.
-
-Paying merchants at each quarter end, from the pilot start: Q1 0 · Q2 4 · Q3 40 · Q4 100 · Q5 180 · Q6 280 · Q7 420 · Q8 600 · Q9 800 · Q10 1,050 · Q11 1,400 · Q12 1,800. Fixed costs are covered from 313 paying merchants in year 1 (after the pilot), 625 in year 2 and **1,250 in year 3, reached in Q11**. Losses still grow in year 3 because acquisition spending grows with the merchant base.
-
-| XOF millions | Year 1 | Year 2 | Year 3 |
-|---|---:|---:|---:|
-| Paying merchants at year end | 100 | 600 | 1,800 |
-| Revenue | 2.1 | 29.2 | 105.5 |
-| Fixed costs (year 1 includes the 30.8 pilot) | 42.8 | 48.0 | 96.0 |
-| Acquisition | 4.0 | 20.0 | 48.0 |
-| Variable costs | 0.4 | 5.5 | 20.0 |
-| **Net result** | **−45.1** | **−44.4** | **−58.6** |
-| Cumulative funding need | 45.1 | 89.5 | 148.1 |
-
-| Assumption | Value | Basis |
-|---|---|---|
-| Subscription | 7,500 F / month / outlet, blended | Mid-point of the 5,000 F and 10,000–15,000 F plans; same figure as [FINANCE-BUDGET.md](FINANCE-BUDGET.md) |
-| Sponsored deals, from year 2 | 10% of merchants buy 2 placements a month at 2,000 F (+400 F per merchant) | Placement prices tested at 1,000–3,000 F per 7 days ([BUSINESS-MODEL.md](BUSINESS-MODEL.md)) |
-| Pilot conversion | 4 of 10 pilot merchants pay at month 6 | The pilot's ≥ 40% exit gate |
-| Growth | 100, 600 and 1,800 paying merchants at year ends, net of churn | One commune, then more Abidjan communes; to rebuild from the pilot's real acquisition rate |
-| Acquisition cost | 40,000 F per new paying merchant | Field agents and reseller commissions; the pilot budgets 50,000 F per onboarding |
-| Variable cost | 1,500 F / month / merchant | Hosting, SMS codes, support |
-| Fixed costs | Pilot 30.8M, then 2M / month (year 1), 4M (year 2), 8M (year 3) | [FINANCE-BUDGET.md](FINANCE-BUDGET.md), then a field team and support that grow with merchants |
-| Partner commissions | 0 | Not assumed until a partner agreement exists |
-
-Funding path: this pilot round (XOF 31M), then a seed round of about XOF 120M (€180k) once the pilot gate is met. A grant (APIF-CI, AfDB, develoPPP) lowers both.
+Moved to [FINANCE.md § 3](FINANCE.md#3-three-year-forecast), Fidelia's single financial model: 1,800 paying merchants at the end of year 3, fixed costs covered from 1,250 paying merchants (Q11), about XOF 148M needed in total, in two rounds (this XOF 31M pilot round, then a seed round of about XOF 120M).
 
 ## Competitor table
 
