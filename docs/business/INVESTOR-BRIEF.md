@@ -54,6 +54,7 @@ Fidelia plugs into the wallet the merchant already uses (Wave first, then other 
 | Stream | When |
 |---|---|
 | Merchant subscription: capped free plan, then ~5,000 F and ~10,000–15,000 F / month / outlet, paid in mobile money *(hypotheses to test)* | After the pilot (the pilot is free) |
+| MFI tool: a licensed MFI pays a monthly fee per monitored, consenting borrower, and its loan officers bring the merchants. Free pilot, with the follow-on price signed at month 3 *(hypothesis to test; not in the forecast until a price is signed)* | Price signed at pilot month 3, billed after the pilot |
 | Sponsored deals: one-off, time-limited placement in the customer app; pricing to be tested | From year 2 |
 | Multi-outlet and network contracts | After proof |
 | Consented partner commissions (credit, savings): Fidelia earns distribution fees, never carries credit risk. **Not in the forecast** | After partnership |
@@ -92,7 +93,7 @@ The round funds the six-month pilot, in two tranches. Each tranche pays for one 
 
 | Tranche · phase | Evidence required |
 |---|---|
-| **Tranche 1 · Phase 0: discovery, compliance and production readiness** (months 1–2) | 5–10 interviews with maquis and grocery owners in one Abidjan commune; Wave API access confirmed; regulatory perimeter and ARTCI review; one payment partner; one or two MFIs asked whether they would pay for a consented tool to follow their merchant borrowers' sales |
+| **Tranche 1 · Phase 0: discovery, compliance and production readiness** (months 1–2) | 5–10 interviews with maquis and grocery owners in one Abidjan commune; Wave API access confirmed; regulatory perimeter and ARTCI review; one payment partner; one or two MFIs offered a free pilot of a consented tool to follow their merchant borrowers' sales, with the follow-on price to be signed at month 3 |
 | **Tranche 2 · Phase 1: free pilot, 5–10 merchants** (months 3–6) | **Exit:** ≥ 70% of real sales recorded at day 30, rising toward 85% at day 60; the app brings new customers, recorded at the counter; ≥ 40% of merchants accept the paid plan when the free pilot ends |
 | **After this round** | A seed round priced on the pilot's results. Then the unit-economics gate before any second commune: acquisition cost below 12 months of gross profit, 3 months of retention, known support and messaging cost per outlet |
 

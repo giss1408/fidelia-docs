@@ -3,13 +3,15 @@
 *Projet de proposition · octobre 2026 · confidentiel* · Les éléments entre crochets `[…]` sont à compléter avant l'envoi.
 
 > **Note interne (à retirer avant l'envoi).** Seuls des faits confirmés figurent ici : Fin'ELLE est une institution de microfinance dédiée aux femmes entrepreneures, partenaire prioritaire de Fidelia ([PARTNERS.md](PARTNERS.md)). Aucun chiffre sur Fin'ELLE (clientes, agences, encours) n'est avancé : à demander lors du premier rendez-vous. Le relevé de revenus signé est disponible pour les commerçantes du pilote : les placer sur la formule gratuite `pilot` ([TECHNICAL-GUIDE.md § Merchant onboarding](../technical/TECHNICAL-GUIDE.md#merchant-onboarding)). Reste à régler avant le pilote : le suivi par genre suppose le champ facultatif prévu dans [KPI.md](KPI.md), pas encore construit.
+>
+> **Prix à fixer avant l'envoi (note interne).** Le pilote reste gratuit, mais le prix de la suite est signé au mois 3 (bon d'engagement en annexe). Remplir `[PRIX]` et `[MINIMUM]` avant l'envoi. Point de départ, **à tester, ce n'est pas un tarif étudié** : 500 à 1 500 F par cliente suivie et active par mois, avec un minimum mensuel. Au premier rendez-vous, demander ce que coûte aujourd'hui une visite de suivi d'un agent de crédit : le prix doit rester nettement inférieur au temps d'agent économisé. Faire relire le bon d'engagement par un conseil OHADA, et confirmer avec lui que la facturation à une IMF de relevés partagés par la commerçante n'entre pas dans le régime des bureaux d'information sur le crédit (BCEAO).
 
 **À l'attention de :** [Nom, fonction], Fin'ELLE · [adresse]
 **De :** Bienvenue Kouadio, Fidelia · contact.fidelia@regisse.com
 
 ## En bref
 
-Nous proposons à Fin'ELLE un **pilote gratuit de six mois** : 10 à 20 de vos clientes qui tiennent un maquis ou une épicerie utilisent Fidelia pour enregistrer leurs ventes. Elles y gagnent un cahier de caisse et un programme de fidélité. **Avec leur accord**, Fin'ELLE reçoit à partir du troisième mois un relevé de leurs ventes, signé et vérifiable. À la fin, nous décidons ensemble si l'outil vous est utile.
+Nous proposons à Fin'ELLE un **pilote gratuit de six mois** : 10 à 20 de vos clientes qui tiennent un maquis ou une épicerie utilisent Fidelia pour enregistrer leurs ventes. Elles y gagnent un cahier de caisse et un programme de fidélité. **Avec leur accord**, Fin'ELLE reçoit à partir du troisième mois un relevé de leurs ventes, signé et vérifiable. **Au mois 3**, après les premiers relevés, nous vous proposons de signer un **bon d'engagement** qui fixe dès maintenant le prix de l'abonnement après le pilote. Il ne devient ferme qu'au mois 6, et seulement si les objectifs fixés ensemble sont atteints. Rien n'est payé pendant le pilote.
 
 ## Le constat
 
@@ -53,8 +55,8 @@ Nous proposons à Fin'ELLE un **pilote gratuit de six mois** : 10 à 20 de vos c
 | 0 | Rendez-vous, convention de partage de données, choix de la commune et du référent |
 | 1 | Présentation par les agents de crédit ; inscription et formation des commerçantes volontaires |
 | 1 à 3 | Utilisation quotidienne ; point d'étape à 30 jours |
-| 3 | Premiers relevés partagés, à la demande des commerçantes ; avis des agents |
-| 6 | Bilan commun et décision sur la suite |
+| 3 | Premiers relevés partagés, à la demande des commerçantes ; avis des agents ; **proposition du bon d'engagement** (prix de la suite et objectifs qui le rendent ferme) |
+| 6 | Bilan commun : si les objectifs du bon d'engagement sont atteints, l'abonnement démarre au mois 7 au prix signé ; sinon, le bon d'engagement tombe, sans frais |
 
 ## Comment nous mesurerons le succès
 
@@ -65,6 +67,7 @@ Nous proposons à Fin'ELLE un **pilote gratuit de six mois** : 10 à 20 de vos c
 | Relevés jugés exploitables par les agents de crédit | [à fixer ensemble] |
 | Temps de suivi gagné par agent et par cliente | Mesuré avant et pendant le pilote |
 | Avis des commerçantes sur le cahier de caisse et la fidélité | Entretien à mi-parcours et à la fin |
+| Bon d'engagement signé par Fin'ELLE | Au mois 3 |
 
 ## Ce que nous demandons à Fin'ELLE
 
@@ -72,14 +75,18 @@ Nous proposons à Fin'ELLE un **pilote gratuit de six mois** : 10 à 20 de vos c
 2. Une présentation du pilote par vos agents de crédit à leurs clientes de [commune].
 3. Deux points d'étape (mois 1 et mois 3) et un bilan au mois 6.
 4. Si le pilote vous intéresse, une **lettre d'intérêt sans engagement** (modèle fourni).
+5. Au mois 3, si les premiers relevés vous sont utiles, la signature du **bon d'engagement** (modèle en annexe).
 
-**Coût pour Fin'ELLE pendant le pilote : aucun**, en dehors du temps du référent.
+**Coût pour Fin'ELLE pendant le pilote : aucun**, en dehors du temps du référent. Le prix de la suite est connu et signé dès le mois 3 : vous décidez sur des relevés réels, et nous préparons la suite sans attendre le bilan.
 
 ## Après le pilote
 
-Rien n'est décidé d'avance. Si l'outil vous est utile, plusieurs suites sont possibles, à discuter :
+La suite principale est fixée dans le bon d'engagement :
 
-- un abonnement de Fin'ELLE pour suivre, avec leur accord, les ventes de ses clientes commerçantes ;
+- **un abonnement de Fin'ELLE** pour suivre, avec leur accord, les ventes de ses clientes commerçantes : `[PRIX]` F par cliente suivie et active par mois, avec un minimum de `[MINIMUM]` F par mois. Seules sont facturées les clientes qui ont donné leur accord et qui utilisent Fidelia ce mois-là ; une cliente qui retire son accord n'est plus facturée le mois suivant.
+
+D'autres suites restent possibles, à discuter :
+
 - un partenariat d'acquisition : vos agents présentent Fidelia à de nouvelles clientes ;
 - une demande de financement commune, par exemple auprès de la facilité d'inclusion financière numérique de la Banque africaine de développement, qui privilégie les femmes et les petites entreprises.
 
@@ -89,4 +96,46 @@ Un rendez-vous de 45 minutes, à votre convenance, pour vous montrer l'applicati
 
 **Contact :** Bienvenue Kouadio · contact.fidelia@regisse.com · [téléphone]
 
-*Document de travail, sans engagement. Fidelia est un projet en pré-pilote ; les applications existent en prototypes fonctionnels.*
+---
+
+## Annexe — Bon d'engagement (modèle, à signer au mois 3)
+
+**Fin'ELLE** · [adresse], Abidjan · Agrément n° [numéro]
+Signataire : [Nom, fonction]
+
+**Objet : engagement sur l'abonnement Fidelia à l'issue du pilote**
+
+Fin'ELLE et Fidelia mènent depuis le [date de début] un pilote gratuit de six mois dans la commune de [commune]. Au vu des premiers relevés, Fin'ELLE s'engage aux conditions suivantes.
+
+**1. Prix.** À partir du mois 7, Fin'ELLE s'abonne au suivi des ventes de ses clientes commerçantes, avec leur accord, au prix de `[PRIX]` F par cliente suivie et active par mois, avec un minimum de `[MINIMUM]` F par mois, payé par [virement / mobile money] chaque mois.
+
+**2. Condition.** Cet engagement devient ferme au mois 6 **seulement si** les objectifs suivants sont atteints, mesurés ensemble lors du bilan :
+
+| Objectif | Seuil |
+|---|---|
+| Commerçantes encore actives au jour 60 | [à fixer ensemble] |
+| Relevés jugés exploitables par les agents de crédit | [à fixer ensemble] |
+| Temps de suivi gagné par agent et par cliente | [à fixer ensemble] |
+
+Si un objectif n'est pas atteint, l'engagement tombe, sans frais ni pénalité pour l'une ou l'autre partie.
+
+**3. Durée.** [Six / douze] mois à partir du mois 7, renouvelable. Chaque partie peut y mettre fin avec un préavis d'un mois.
+
+**4. Ce qui ne change pas.**
+
+- Fidelia ne détient aucun fonds, n'accorde aucun crédit et ne garantit aucun remboursement ; la décision de crédit reste entièrement celle de Fin'ELLE.
+- Aucune donnée n'est transmise sans l'accord écrit et révocable de la commerçante concernée, ni avant la convention de partage de données conforme à la loi n° 2013-450 et aux exigences de l'ARTCI.
+- Une cliente qui refuse Fidelia, ou qui retire son accord, ne subit aucune conséquence sur son crédit, et n'est plus facturée à partir du mois suivant.
+- Aucun score n'est produit : seulement des relevés de ventes que la commerçante peut voir et vérifier.
+
+**5. Prix ferme.** Le prix ci-dessus ne peut pas être augmenté pendant la durée prévue au point 3.
+
+Fait à Abidjan, le [date], en deux exemplaires.
+
+Pour Fin'ELLE : [Nom, fonction], signature et cachet
+
+Pour Fidelia : [Nom, fonction], signature
+
+---
+
+*Document de travail, sans engagement jusqu'à la signature du bon d'engagement ci-dessus. Fidelia est un projet en pré-pilote ; les applications existent en prototypes fonctionnels.*

@@ -54,6 +54,7 @@ Fidelia se branche sur le portefeuille que le commerçant utilise déjà (Wave d
 | Source de revenu | Quand |
 |---|---|
 | Abonnement commerçant : formule gratuite plafonnée, puis ~5 000 F et ~10 000–15 000 F / mois / point de vente, payé en mobile money *(hypothèses à tester)* | Après le pilote (le pilote est gratuit) |
+| Outil IMF : une IMF agréée paie un abonnement mensuel par cliente emprunteuse suivie avec son accord, et ses agents de crédit amènent les commerçants. Pilote gratuit, prix de la suite signé au mois 3 *(hypothèse à tester ; absent des prévisions tant qu'aucun prix n'est signé)* | Prix signé au mois 3 du pilote, facturé après le pilote |
 | Bons plans sponsorisés : emplacement ponctuel et limité dans le temps dans l'application client ; prix à tester | À partir de l'an 2 |
 | Contrats multi-points de vente et réseaux | Après preuve |
 | Commissions d'apport consenties (crédit, épargne) : Fidelia perçoit des frais de distribution, sans jamais porter de risque de crédit. **Absentes des prévisions** | Après partenariat |
@@ -92,7 +93,7 @@ Le tour finance le pilote de six mois, en deux tranches. Chaque tranche paie une
 
 | Tranche · phase | Preuves exigées |
 |---|---|
-| **Tranche 1 · Phase 0 : découverte, conformité et préparation à la production** (mois 1–2) | 5 à 10 entretiens avec des gérants de maquis et d'épiceries dans une commune d'Abidjan ; accès à l'API Wave confirmé ; périmètre réglementaire et revue ARTCI ; un partenaire de paiement ; une ou deux IMF interrogées sur un outil consenti de suivi des ventes de leurs commerçants emprunteurs |
+| **Tranche 1 · Phase 0 : découverte, conformité et préparation à la production** (mois 1–2) | 5 à 10 entretiens avec des gérants de maquis et d'épiceries dans une commune d'Abidjan ; accès à l'API Wave confirmé ; périmètre réglementaire et revue ARTCI ; un partenaire de paiement ; une ou deux IMF à qui l'on propose un pilote gratuit d'un outil consenti de suivi des ventes de leurs commerçants emprunteurs, avec le prix de la suite à signer au mois 3 |
 | **Tranche 2 · Phase 1 : pilote gratuit, 5 à 10 commerçants** (mois 3–6) | **Sortie :** ≥ 70 % des ventes réelles enregistrées au jour 30, vers 85 % au jour 60 ; l'application amène de nouveaux clients, enregistrés au comptoir ; ≥ 40 % des commerçants acceptent la formule payante à la fin du pilote gratuit |
 | **Après ce tour** | Un tour d'amorçage valorisé sur les résultats du pilote. Puis le seuil d'économie unitaire avant toute deuxième commune : coût d'acquisition inférieur à 12 mois de marge brute, 3 mois de rétention, coût de support et de messagerie connu par point de vente |
 
