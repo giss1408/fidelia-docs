@@ -9,7 +9,7 @@ Fidelia is well thought out but was written for regulators and analysts, not inv
 | # | Gap | What the brief said | What would close it |
 |---|---|---|---|
 | 1 | **Proof of demand** | "Pre-pilot. No users, merchants or revenue yet." | 5 signed merchant letters of interest, 1 signed MFI letter, Phase 0 interview results with quotes, a waitlist, one live merchant on video |
-| 2 | **Company not ready to receive money** | Legal entity, RCCM, capital, ownership and IP are all `[PLACEHOLDER]` | Registered company, cap table, code and brand assigned to the company |
+| 2 | **Company not ready to receive money** | Legal entity, RCCM, capital, ownership and IP are all `[PLACEHOLDER]` | Registered company, cap table, code and brand assigned to the company. **Partly closed:** MILIKEY ENERGY SARLU, RCCM CI-ABJ-03-2023-B13-07947, sole shareholder Kouadio Aya Bienvenue; capital and IP assignment still open |
 | 3 | **Story too complex** | One habit, five uses, six phases, three tiers, nine red lines | One sentence, one merchant's story, one 90-second video; red lines moved to risk control |
 | 4 | **Team** | Two founders: one technical, one marketing and finance | Who runs field operations; 2–3 named advisors (MFI, mobile money, UEMOA legal); bios with past results; full-time status |
 | 5 | **Numbers** | Market figures were about financial inclusion, not about Fidelia's customers; grocery economics "to measure" | Market sizing in outlets and XOF, a three-year forecast with assumptions, a path to break-even (below) |

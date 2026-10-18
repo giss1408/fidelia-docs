@@ -2,7 +2,7 @@
 
 *Pre-seed · Abidjan, Côte d'Ivoire · October 2026*
 
-> **Placeholders.** Everything marked `[PLACEHOLDER]` (company registration, ownership) is dummy data to be replaced before this brief is sent to anyone. Market figures carry their sources in [MARKET.md](MARKET.md) and must be re-checked before contractual use.
+> **Placeholders.** Everything marked `[PLACEHOLDER]` (share capital, prior funding, IP) is dummy data to be replaced before this brief is sent to anyone. Market figures carry their sources in [MARKET.md](MARKET.md) and must be re-checked before contractual use.
 >
 > Keep this file, its French translation (`INVESTOR-BRIEF.fr.md`) and the web pages (`backend-api/app/investor_brief/`, served behind the investor password at `<API>/brief/`) in step: a change to one is a change to all three.
 
@@ -110,10 +110,10 @@ The round funds the six-month pilot, in two tranches. Each tranche pays for one 
 
 | | |
 |---|---|
-| Legal entity | `[PLACEHOLDER]` Fidelia SAS, Abidjan, Côte d'Ivoire (OHADA) |
-| Registration (RCCM) | `[PLACEHOLDER]` CI-ABJ-2026-B-00000 |
+| Legal entity | MILIKEY ENERGY SARLU (single-member limited liability company), Abidjan, Côte d'Ivoire (OHADA). Fidelia is a product of MILIKEY ENERGY |
+| Registration (RCCM) | CI-ABJ-03-2023-B13-07947 |
 | Share capital | `[PLACEHOLDER]` 1,000,000 FCFA |
-| Ownership | `[PLACEHOLDER]` Stanislas Regisse 50% · Bienvenue Kouadio 50% |
+| Ownership | Kouadio Aya Bienvenue 100% (sole shareholder) |
 | Prior funding | `[PLACEHOLDER]` None (founder-funded) |
 | IP | `[PLACEHOLDER]` Code and brand assigned to the company |
 | Final brand name | To be confirmed legally before public launch |

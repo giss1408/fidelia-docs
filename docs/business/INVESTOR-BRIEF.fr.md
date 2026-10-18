@@ -2,7 +2,7 @@
 
 *Pré-amorçage · Abidjan, Côte d'Ivoire · octobre 2026*
 
-> **Éléments à compléter.** Tout ce qui est marqué `[À COMPLÉTER]` (immatriculation, actionnariat) est une donnée fictive à remplacer avant tout envoi. Les chiffres de marché sont sourcés dans [MARKET.md](MARKET.md) et doivent être revérifiés avant tout usage contractuel.
+> **Éléments à compléter.** Tout ce qui est marqué `[À COMPLÉTER]` (capital social, financement antérieur, propriété intellectuelle) est une donnée fictive à remplacer avant tout envoi. Les chiffres de marché sont sourcés dans [MARKET.md](MARKET.md) et doivent être revérifiés avant tout usage contractuel.
 >
 > Ce document est la traduction de `INVESTOR-BRIEF.md`. Toute modification doit être reportée dans les deux versions, ainsi que dans les pages web (`backend-api/app/investor_brief/`, servies derrière le mot de passe investisseur à `<API>/brief/`).
 
@@ -110,10 +110,10 @@ Le tour finance le pilote de six mois, en deux tranches. Chaque tranche paie une
 
 | | |
 |---|---|
-| Entité juridique | `[À COMPLÉTER]` Fidelia SAS, Abidjan, Côte d'Ivoire (OHADA) |
-| Immatriculation (RCCM) | `[À COMPLÉTER]` CI-ABJ-2026-B-00000 |
+| Entité juridique | MILIKEY ENERGY SARLU (société à responsabilité limitée unipersonnelle), Abidjan, Côte d'Ivoire (OHADA). Fidelia est un produit de MILIKEY ENERGY |
+| Immatriculation (RCCM) | CI-ABJ-03-2023-B13-07947 |
 | Capital social | `[À COMPLÉTER]` 1 000 000 FCFA |
-| Actionnariat | `[À COMPLÉTER]` Stanislas Regisse 50 % · Bienvenue Kouadio 50 % |
+| Actionnariat | Kouadio Aya Bienvenue 100 % (associé unique) |
 | Financement antérieur | `[À COMPLÉTER]` Aucun (fonds propres des fondateurs) |
 | Propriété intellectuelle | `[À COMPLÉTER]` Code et marque cédés à la société |
 | Nom de marque définitif | À confirmer juridiquement avant le lancement public |
