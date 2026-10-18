@@ -78,7 +78,7 @@ Phase references point to [ROADMAP.md](ROADMAP.md). The one-sentence pitch per a
 
 *Section 5 lists funders of our partners. This section lists institutions that could fund **Fidelia itself**: the six-month pilot envelope of XOF 30.82M ([FINANCE.md](FINANCE.md)) and the later pre-seed round ([INVESTOR-BRIEF.md](INVESTOR-BRIEF.md)).*
 
-> **Status checked by web search on 10 October 2026.** Calls open and close and programmes change. Check each one on its official website before applying. Most require a registered company, so register the company and fill the investor-brief placeholders first ([FINANCE.md](FINANCE.md) § 6). For every application, decide whether you are asking for a grant, equity or a loan.
+> **Status checked by web search on 10 October 2026.** Calls open and close and programmes change. Check each one on its official website before applying. Most require a registered company: Fidelia's is MILIKEY ENERGY SARLU (RCCM CI-ABJ-03-2023-B13-07947). Fill the remaining investor-brief placeholders first ([FINANCE.md](FINANCE.md) § 6). For every application, decide whether you are asking for a grant, equity or a loan.
 
 ### Grants and public programmes
 
