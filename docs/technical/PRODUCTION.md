@@ -5,6 +5,19 @@ Wave payments. It runs from [`render.production.yaml`](https://github.com/giss14
 separate from the test environment in `render.yaml` (shared test numbers,
 simulated payments, free plan). The two never share a database.
 
+```
+phone ──► Cloudflare (DNS, WAF, cache; Abidjan edge)
+            ├─ api.<domain>   ──► fidelia-api-prod (Render, Frankfurt, 2 instances)
+            │                       ├─► Neon (Postgres, EU)
+            │                       ├─► fidelia-kv-prod (rate limits, video queue)
+            │                       └─► R2 (media, EU) ◄── fidelia-worker-prod (videos)
+            └─ media.<domain> ──► R2 (photos and videos, cached at the edge)
+fidelia-metrics-prod (private) scrapes each API instance ──► Grafana Cloud
+```
+
+Everything runs the one Docker image in `backend-api/Dockerfile`: the API,
+the worker, the test environment and CI.
+
 What watches it:
 
 | Question | Where the answer is | Alerts you |
@@ -19,13 +32,16 @@ What watches it:
 
 ## 1. Accounts to open (once)
 
-1. **Render**: a paid workspace. The API runs on the Starter instance type
-   (always on), the installer site as a static site.
+1. **Render**: a paid workspace. The Blueprint creates the API (two Starter
+   instances), the video worker, a Key Value store and the metrics scraper
+   (Starter each), and the installer site (static).
 2. **Neon**: the production project on a paid plan, with point-in-time
    restore. See § Database.
 3. **Africa's Talking**: production account with credit, and the `FIDELIA`
    sender ID applied for (approval takes time; codes work without it).
-4. **Cloudflare R2**: a `fidelia-media-prod` bucket and an API token limited to it.
+4. **Cloudflare**: the domain (its DNS moved to Cloudflare), and an R2 bucket
+   `fidelia-media-prod` **created with the EU jurisdiction** (it cannot be
+   changed later), with an API token limited to it.
 5. **Grafana Cloud**: free tier is enough for the pilot (metrics, dashboards,
    alerting).
 6. **Better Stack** (or UptimeRobot): uptime monitors, and log storage if
@@ -35,42 +51,96 @@ What watches it:
 
 1. Render → **New → Blueprint** → the `fidelia-BE` repository, Blueprint path
    `render.production.yaml`. Render asks for every `sync: false` value; fill
-   them from the table in § 6.
+   them from the table in § 7. `DATABASE_URL` and the `R2_*` values are
+   asked twice, for the API and for the worker: enter the same ones.
 2. Production follows the `trunk` branch (the test environment follows
    `integration`). The API deploys with `autoDeploy: false`: a merge into
    `trunk` does not reach real merchants until someone presses **Manual
    Deploy**. Migrations run in
    the pre-deploy step; if one fails, the previous build keeps serving.
-3. Once the API is up, copy its address into the installer site's
+3. Put Cloudflare in front (§ 3). Until then the API answers 403 to
+   everything but `/health`: it accepts only requests that came through
+   Cloudflare.
+4. Copy `https://api.<domain>` into the installer site's
    `VITE_FIDELIA_API_BASE`, and the installer site's address into the API's
    `CORS_ORIGINS`. Redeploy both.
-4. Check: `https://<api>/health` → `{"status":"ok"}`, `/ready` →
-   `{"ready":true}`, and `/metrics` → **404** (it needs the token).
-5. Build the apps for production: `scripts/build-release.sh https://<api>`
-   in each app repository, with the production address. Test builds keep
-   pointing at the test API.
+5. Check: `https://api.<domain>/health` → `{"status":"ok"}`, `/ready` →
+   `{"ready":true}`, `/metrics` → **404**, and the onrender.com address →
+   **403** on `/api/categories`.
+6. Build the apps for production: `scripts/build-release.sh https://api.<domain>`
+   in each app repository. Test builds keep pointing at the test API.
 
 The API refuses to start in production with a test-only setting: a console
-SMS sender, `TEST_OTP_NUMBERS`, simulated payments, local media storage or a
-missing encryption key. A failed start in the deploy log names the setting.
+SMS sender, `TEST_OTP_NUMBERS`, simulated payments, local media storage, a
+missing encryption key, no `CLOUDFLARE_ORIGIN_SECRET`, or no
+`RATE_LIMIT_STORAGE_URI`. A failed start in the deploy log names the setting.
 
-## 3. Metrics and alerts (Grafana Cloud)
+## 3. Cloudflare in front
+
+Cloudflare answers for the domain, filters traffic and caches media at its
+Abidjan edge. It does not run the API or store its data. Settings, in the
+Cloudflare dashboard for the domain:
+
+1. **API hostname.** Render → fidelia-api-prod → *Settings* → *Custom
+   Domains* → `api.<domain>`. In Cloudflare *DNS*, the CNAME Render asks for
+   (`api` → `fidelia-api-prod.onrender.com`), **DNS only** (grey cloud)
+   until Render shows the domain verified with a certificate, then
+   **Proxied** (orange cloud).
+2. **TLS.** *SSL/TLS* → **Full (strict)**. *Edge Certificates* → *Always Use
+   HTTPS* on, minimum TLS 1.2.
+3. **Origin secret.** *Rules* → *Transform Rules* → *Modify Request Header* →
+   new rule "Fidelia origin secret": when *Hostname* equals `api.<domain>`,
+   **Set static** `X-Origin-Auth` = the API's `CLOUDFLARE_ORIGIN_SECRET`
+   (Render → fidelia-api-prod → Environment). *Set* replaces anything a
+   caller sends. Without this rule every request gets 403.
+4. **No cache for the API.** *Caching* → *Cache Rules* → when *Hostname*
+   equals `api.<domain>` → **Bypass cache**. API answers are personal.
+5. **Media hostname.** R2 → `fidelia-media-prod` → *Settings* → *Custom
+   Domains* → `media.<domain>`; then `MEDIA_PUBLIC_BASE_URL` =
+   `https://media.<domain>` on the API and the worker. Files are written
+   once with a one-year immutable cache, so Cloudflare serves repeat views
+   from Abidjan.
+6. **Staged originals stay private.** Videos wait under `incoming/` for the
+   worker, untouched (GPS included), for minutes. R2 → the bucket →
+   *Settings* → *Object lifecycle rules*: delete prefix `incoming/` after
+   1 day. *Security* → *WAF* → *Custom rules*: when *Hostname* equals
+   `media.<domain>` and *URI Path* starts with `/incoming/` → **Block**.
+7. **Payment webhooks pass.** *Custom rules*: when *URI Path* starts with
+   `/webhooks/wave/` or equals `/api/webhooks/mobile-money` → **Skip** (all
+   remaining custom rules, rate limiting, managed rules). Leave **Bot Fight
+   Mode off**: on the Free plan it cannot be skipped per path, and it would
+   challenge Wave's servers, so payments would stop arriving. Those routes
+   are protected by their own token and signature.
+8. **Sign-in codes at the edge.** *Security* → *WAF* → *Rate limiting rules*:
+   when *URI Path* equals `/api/auth/otp/request`, 5 requests per 10 seconds
+   per IP → **Block** for 10 seconds. A second layer in front of the API's own
+   limits and the daily SMS budget.
+9. **Check.** `curl -s -o /dev/null -w '%{http_code}' https://fidelia-api-prod.onrender.com/api/categories`
+   → `403`; the same on `https://api.<domain>` → `200`. Send a test Wave
+   payment and see it confirmed.
+
+To rotate the origin secret: set `new,old` in `CLOUDFLARE_ORIGIN_SECRET`
+and deploy, change the Transform Rule to `new`, then set `new` alone.
+
+## 4. Metrics and alerts (Grafana Cloud)
 
 The API exports Prometheus metrics at `/metrics`, labelled by route template
 (`/api/venues/{venue_id}`, never a raw URL) to keep the series count small.
 In production the endpoint answers only with `METRICS_TOKEN`.
 
-1. **Scrape the API.** Grafana Cloud → *Connections* → **Metrics Endpoint** →
-   new scrape job:
-   * Name: `fidelia-api`
-   * URL: `https://<api>/metrics`
-   * Authentication: **Basic**. Username: anything (e.g. `grafana`).
-     Password: the API's `METRICS_TOKEN`, copied from Render → fidelia-api-prod
-     → Environment.
-   * Interval: 1 minute.
+1. **Metrics reach Grafana Cloud** through `fidelia-metrics-prod`, a Grafana
+   Alloy private service ([`monitoring/alloy/config.alloy`](https://github.com/giss1408/djassa-BE/blob/integration/monitoring/alloy/config.alloy)).
+   Each API instance keeps its own counters and the public address reaches
+   one at random, so Alloy finds every instance on Render's private network
+   (`fidelia-api-prod-discovery`) and scrapes each one with `METRICS_TOKEN`.
+   Grafana Cloud → your stack → *Prometheus* → *Send metrics* gives the
+   three values the Blueprint asks for: `GRAFANA_REMOTE_WRITE_URL`,
+   `GRAFANA_REMOTE_WRITE_USERNAME` (the instance ID) and
+   `GRAFANA_REMOTE_WRITE_TOKEN` (an access policy token with `metrics:write`).
 
-   *Test connection* must succeed; within two minutes `fidelia_build_info`
-   appears in *Explore*.
+   Within two minutes `fidelia_build_info` appears in *Explore*, once per
+   instance (two `instance` labels). If an old *Metrics Endpoint* scrape job
+   of the public URL exists, delete it: it would count one instance twice.
 2. **Dashboards.** *Dashboards → New → Import*, once per file in
    [`monitoring/grafana/dashboards/`](https://github.com/giss1408/djassa-BE/tree/integration/monitoring/grafana/dashboards):
    `api-overview.json`, `apps-and-auth.json`, `pilot-usage.json`,
@@ -97,20 +167,20 @@ In production the endpoint answers only with `METRICS_TOKEN`.
    request two codes, check `OtpDailyBudgetReached` reaches everyone, then put
    the budget back.
 
-## 4. Uptime monitors
+## 5. Uptime monitors
 
 Grafana alerts only when metrics arrive. An outside monitor catches the
 cases where nothing arrives at all (`ApiMetricsMissing` is the backstop).
 
 | Monitor | URL | Every | Expect |
 |---|---|---|---|
-| API and database | `https://<api>/ready` | 1 min | 200 and `"ready":true` |
+| API and database | `https://api.<domain>/ready` | 1 min | 200 and `"ready":true` |
 | Installer site | `https://<installer>/` | 5 min | 200 |
 | Test download page | `https://<fidelia-web>/app/` | 5 min | 200 |
 
 Alert after 2 failed checks, to the same people as critical alerts.
 
-## 5. Logs
+## 6. Logs
 
 The API writes one JSON line per request (`LOG_FORMAT=json`):
 
@@ -124,35 +194,44 @@ The API writes one JSON line per request (`LOG_FORMAT=json`):
 query strings carry phone numbers. Every response carries `X-Request-ID`; an
 app or a merchant's screenshot can quote it to find the exact line.
 
+The worker's lines are Celery's own (`fidelia-worker-prod` → *Logs*): one
+per video job, with its outcome.
+
 Render keeps logs for a limited time. To keep them longer, Render →
 *Workspace settings* → **Log Streams** → the syslog endpoint your log service
 gives (Better Stack: *Sources → Render*). Keep 30 days at least.
 
-## 6. Settings (keep this table current)
+## 7. Settings (keep this table current)
 
 Values set by hand in the Render dashboard do not follow the Blueprint
 afterwards. Whenever one changes there, change it here too.
 
 | Setting | Where it comes from | Notes |
 |---|---|---|
-| `DATABASE_URL` | Neon, production project, direct endpoint | Never the test database |
+| `DATABASE_URL` | Neon, production project, direct endpoint | Never the test database. API and worker |
 | `FIDELIA_SECRET_KEY` | Generated by Render | Rotating it signs everyone out |
 | `FIDELIA_ENCRYPTION_KEY` | Generated by Render | **Copy to the password manager.** Lost or changed: every merchant reconnects Wave |
 | `MOBILE_MONEY_SECRETS` | Payment provider's webhook secret | `current,previous` while rotating |
 | `AT_USERNAME`, `AT_API_KEY` | Africa's Talking, production app | |
 | `AT_SENDER_ID` | Africa's Talking, once approved | Empty until then |
 | `OTP_DAILY_SMS_BUDGET` | Blueprint: 300 | A few times a normal day; raise as the pilot grows |
-| `R2_*`, `MEDIA_PUBLIC_BASE_URL` | Cloudflare R2 | Bucket `fidelia-media-prod` |
+| `R2_*` | Cloudflare R2 | Bucket `fidelia-media-prod`, `R2_JURISDICTION=eu`. API and worker |
+| `MEDIA_PUBLIC_BASE_URL` | `https://media.<domain>` (§ 3) | API and worker |
+| `MEDIA_PROCESSING` | Blueprint: `worker` | Videos converted by fidelia-worker-prod |
+| `CLOUDFLARE_ORIGIN_SECRET` | Generated by Render | Same value in the Cloudflare Transform Rule (§ 3) |
+| `RATE_LIMIT_STORAGE_URI`, `CELERY_BROKER_URL` | Blueprint: fidelia-kv-prod | Set by Render from the Key Value store |
 | `CORS_ORIGINS` | The installer site's exact address | Add the public site's domain once it has one |
-| `METRICS_TOKEN` | Generated by Render | Also in Grafana Cloud's scrape job; rotate both together |
-| `VITE_FIDELIA_API_BASE` (installer site) | The API's address | Rebuild the site after a change |
+| `METRICS_TOKEN` | Generated by Render | fidelia-metrics-prod reads it from the API; rotating it needs a redeploy of both |
+| `GRAFANA_REMOTE_WRITE_*` (metrics scraper) | Grafana Cloud → Prometheus → Send metrics | |
+| `VITE_FIDELIA_API_BASE` (installer site) | `https://api.<domain>` | Never the onrender.com address. Rebuild the site after a change |
 
-## 7. When an alert fires
+## 8. When an alert fires
 
 | Alert | First look | Likely causes and fixes |
 |---|---|---|
 | **Uptime /ready down** | Render → fidelia-api-prod → Events and Logs | Deploy failed to start (the log names the bad setting); Neon down or out of compute: check Neon status; roll back with *Rollback* on the last good deploy |
-| **ApiMetricsMissing** | Is the uptime monitor also red? | Both red: the API is down, see above. Only this one: the scrape fails, usually `METRICS_TOKEN` rotated on one side only |
+| **ApiMetricsMissing** | Is the uptime monitor also red? | Both red: the API is down, see above. Only this one: fidelia-metrics-prod → Logs (scrape refused after a `METRICS_TOKEN` change: redeploy it; remote write refused: the Grafana token) |
+| **Every request 403** | Cloudflare → *Rules* → Transform Rules | The origin-secret rule was edited or disabled, or `CLOUDFLARE_ORIGIN_SECRET` changed without the rule |
 | **HighErrorRate** | *API overview* → *Errors by route*; logs filtered on `level: error` | One route: a bug, often from the last deploy (*Running build* panel), so roll back. All routes: the database |
 | **SlowRequests** | *Latency p95, slowest routes* | Database under load (Neon dashboard); one slow route: a missing index |
 | **PaymentWebhookFailing** | Logs on route `/api/webhooks/mobile-money` | 401: the provider rotated its secret, so update `MOBILE_MONEY_SECRETS`; 5xx: a bug, payments are not being confirmed, so treat as urgent and tell affected merchants |
@@ -161,21 +240,32 @@ afterwards. Whenever one changes there, change it here too.
 | **OtpDailyBudgetReached** | Same dashboard | Real growth: raise the budget. An attack: keep it, it is doing its job, and look at the per-IP limits |
 | **AppErrorSpike / AppCrashAfterRelease** | Installer site → *Erreurs des apps* | A bad release: stop sharing the new APK, fix, release the next tag |
 
+Videos stuck on `processing` for over 30 minutes show as failed to the
+merchant. Look at fidelia-worker-prod → Logs: not running (restart it), or
+R2 or the database unreachable. If the queue itself is down, the API converts
+videos itself, slowly.
+
 After any incident a merchant noticed: write down what happened, when, what
 fixed it, and what would have caught it sooner.
 
-## Scaling beyond one instance
+## Instances
 
-Counters live in the API process, and the scrape reaches one instance through
-Render's public address. With `numInstances: 1` that is the whole picture.
-Before adding instances: run Grafana Alloy as a Render private service that
-scrapes every instance on the private network (`fidelia-api-prod-discovery`)
-and remote-writes to Grafana Cloud, and turn the public scrape job off.
+The API runs two instances. Nothing either one keeps matters to the other:
+sessions are tokens, rate-limit counters are in fidelia-kv-prod, the daily
+SMS budget is counted in the database, media is in R2, videos go through the
+queue. Metrics are per instance and summed by the dashboards and alerts.
+More instances: raise `numInstances`; nothing else changes.
 
 ## Database
 
 To be completed with the replica plan. Until then the minimum:
 
 * Neon paid plan with point-in-time restore over at least 7 days.
+* Region **AWS Europe (Frankfurt)**, next to the API and inside the EU (the
+  ARTCI transfer filing names it). Neon cannot move a project to another
+  region: check it when creating the project.
+* Production compute with **scale to zero off** (*Branches* → `main` →
+  *Compute* → *Edit*). Otherwise the first request after a quiet spell waits
+  for the database to wake, and `/ready` flaps at night.
 * Restore tested once into a scratch branch, and the time it took noted here.
 * The production `DATABASE_URL` known only to Render and the password manager.
