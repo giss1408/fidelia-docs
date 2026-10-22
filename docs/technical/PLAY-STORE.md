@@ -21,10 +21,9 @@ and its passwords no update of that app can ever be published: keep a backup.
 1. **Protect the keys.** `chmod 600 ~/djassa-*-release.jks`. Move the
    passwords from any plain-text file (`~/djassa-*-github-secrets.txt`) into
    the password manager, then delete that file.
-2. **Privacy policy**: fill in the legal entity and its address in fidelia-Web
-   `public/confidentialite/index.html` (search for `A-COMPLETER`), have it
-   checked against the ARTCI declaration, deploy, and check the page loads
-   (§ 8).
+2. **Privacy policy**: live at `https://fidelia.milikey-energy.com/confidentialite/` (fidelia-Web
+   `public/confidentialite/index.html`, legal entity and address filled in).
+   Keep it in line with the ARTCI declaration and check the page loads (§ 8).
 3. **Screenshots**: 2 to 8 per app (§ 7).
 4. **Decide the server** the build talks to: the repository variable
    `FIDELIA_API_BASE` in each app repository (Settings → Secrets and variables
@@ -166,7 +165,7 @@ Category: Fidelia → *Shopping*; Fidelia Pro → *Business*. Contact email
 
 | Form | Answer |
 |---|---|
-| Privacy policy | `https://<site>/confidentialite/` (fidelia-Web `public/confidentialite/`) |
+| Privacy policy | `https://fidelia.milikey-energy.com/confidentialite/` (fidelia-Web `public/confidentialite/`) |
 | App access | Restricted: give reviewers a test number and its code. On the test API, `07 00 00 00 01` (customer) and `07 00 00 00 02` (merchant) sign in with `000000`. |
 | Ads | No ads |
 | Content rating | Questionnaire: reference / utility app; no violence, sexuality, gambling, drugs; users do not chat. Shops publish photos and deals reviewed by the team. |
@@ -175,11 +174,11 @@ Category: Fidelia → *Shopping*; Fidelia Pro → *Business*. Contact email
 | Government app | No |
 | Financial features | Declare: *payments* (the customer pays the merchant from their own mobile wallet; Fidelia holds no money) and, for layaway, *other*: "paiement d'un produit en plusieurs versements au commerçant, sans crédit, intérêts ni frais". Never describe it as credit or a loan. |
 | Health | No |
-| Account deletion | `https://<site>/supprimer-mon-compte/` (fidelia-Web `public/supprimer-mon-compte/`). In the apps: initial → **Compte** → **Supprimer mon compte**. |
+| Account deletion | `https://fidelia.milikey-energy.com/supprimer-mon-compte/` (fidelia-Web `public/supprimer-mon-compte/`). In the apps: initial → **Compte** → **Supprimer mon compte**. |
 
-`<site>` is the public site's address. Play shows these links to users, so
-give a stable address: the custom domain once it exists rather than an
-`onrender.com` name.
+Both links are on the custom domain `fidelia.milikey-energy.com` (Cloudflare
+CNAME to the fidelia-Web static site on Render), never an `onrender.com` name:
+Play shows them to users. The same links serve the App Store (§ 10).
 
 ### Data safety
 
@@ -217,8 +216,23 @@ lists (it may report diagnostics to Google).
   new owner first, then *Supprimer le compte*.
 * **Without the app**: the public page `/supprimer-mon-compte/` explains both,
   and gives an address to write to.
-* The privacy policy at `/confidentialite/` is a **draft**: fill in the legal
-  entity and its address (search the page for `A-COMPLETER`), and have it
-  checked against the ARTCI declaration ([ARTCI.md](../Reglementation/ARTCI.md)).
+* The privacy policy at `https://fidelia.milikey-energy.com/confidentialite/` names MILIKEY ENERGY SARLU
+  and its address. Keep it in line with the ARTCI declaration
+  ([ARTCI.md](../Reglementation/ARTCI.md)).
   The contact address is `contact.fidelia@regisse.com`, forwarded to the
   team's inbox.
+
+## 10. App Store (iOS)
+
+The iOS listings use the same public pages as Google Play.
+
+| App Store Connect field | Value |
+|---|---|
+| Privacy Policy URL (App Information) | `https://fidelia.milikey-energy.com/confidentialite/` |
+| Support URL (version page) | `https://fidelia.milikey-energy.com/` (contact email on the page) |
+| Account deletion (guideline 5.1.1(v)) | In the apps: initial → **Compte** → **Supprimer mon compte**; without the app: `https://fidelia.milikey-energy.com/supprimer-mon-compte/` |
+
+App Privacy ("nutrition label"): declare the same data as the Data safety table
+(§ 8): phone number, purchase history, and for Fidelia Pro name, precise
+location and photos/videos, all *linked to the user*, none used for tracking;
+app interactions and crash data *not linked to the user* (random install id).
